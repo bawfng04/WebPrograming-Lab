@@ -1,0 +1,104 @@
+/* Reset default margin for all elements */
+* {
+  margin: 0;
+}
+
+/* Generic div styles */
+div {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+/* Link styles */
+a {
+  color: blue;
+}
+
+/* Unordered list styles */
+ul {
+  padding-left: 25px;
+}
+
+/* Paragraph styles */
+p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Menu link styles */
+.menu {
+  color: white;
+  padding-right: 15px;
+}
+
+/* Container grid layout */
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  grid-template-rows: 50px 50px 150px 150px auto 128px 50px;
+  grid-template-columns: 250px 275px 275px;
+}
+
+/* Header styles */
+.header {
+  background-color: #626161;
+  grid-column: 1/4;
+}
+
+/* Menu bar styles */
+.menu-bar {
+  background-color: #0303fd;
+  grid-column: 1/4;
+  padding-left: 50px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+/* Link list 1 styles */
+.link-list1 {
+  background-color: #ffff00;
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+/* Link list 2 styles */
+.link-list2 {
+  background-color: #808080;
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+/* Content styles */
+.content {
+  background-color: #ffffff;
+  grid-area: 3 / 2 / 6 / 4;
+}
+
+/* Content summary 1 styles */
+.content-summary1,
+.content-summary2 {
+  display: flex;
+  align-items: center;
+  height: 128px;
+}
+
+.content-summary1 {
+  background-color: #00ac38;
+  grid-area: 6 / 2 / 7 / 3;
+}
+
+/* Content summary 2 styles */
+.content-summary2 {
+  background-color: #ff0000;
+  grid-area: 6 / 3 / 7 / 4;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #0303fd;
+  grid-area: 7 / 1 / 8 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
