@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>page_screenshot</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="logo.png" alt="logo" />
+      <h1>About</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+      <h1>Intro</h1>
+      <video width="550" controls>
+        <source src="video_sample.mp4" type="video/mp4" />
+      </video>
+
+      <h1>Our Locations</h1>
+      <ul>
+        <li>
+          <span class="location-group">USA</span>
+          <ul>
+            <li
+              ><a href="https://www.meetup.com/girldevelopit/">New York</a></li
+            >
+            <li
+              ><a href="https://www.meetup.com/girldevelopitcbus/"
+                >Columbus</a
+              ></li
+            >
+            <li
+              ><a href="https://www.meetup.com/girl-develop-it-austin/"
+                >Austin</a
+              ></li
+            >
+            <li
+              ><a href="https://www.meetup.com/Girl-Develop-It-Philadelphia/"
+                >Philly</a
+              ></li
+            >
+          </ul>
+        </li>
+        <li>
+          <span class="location-group">World</span>
+          <ul>
+            <li
+              ><a href="https://www.meetup.com/girl-develop-it-ottawa/"
+                >Ottawa</a
+              ></li
+            >
+            <li
+              ><a href="https://www.meetup.com/girldevelopit-sydney/"
+                >Sydney</a
+              ></li
+            >
+          </ul>
+        </li>
+      </ul>
+
+      <h1>Upcoming Classes</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Topic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New York</td>
+            <td>JavaScript &amp; jQuery</td>
+          </tr>
+          <tr>
+            <td>San Francisco</td>
+            <td>HTML &amp; CSS</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="signup-div">
+        <h2> Sign Up! </h2>
+        <form action="/action_page.php">
+          <label>Name: </label>
+          <input name="name" type="text" size="20" title="Name" />
+          <br />
+          <label>Email: </label>
+          <input name="email" type="text" size="20" title="email" /> <br />
+          <label>Location: </label>
+          <select name="location" title="location">
+            <option> San Francisco </option>
+            <option> New York </option>
+          </select>
+          <br />
+          <fieldset>
+            <legend>Gender:</legend>
+            <label>Female</label>
+            <input name="gender" type="radio" title="Female" />
+            <label>Male</label>
+            <input name="gender" type="radio" title="Male" />
+          </fieldset>
+          <br />
+          <label>Experience: </label> <br />
+          <textarea name="experiences" title="experience"> </textarea>
+          <br />
+          <input name="signup" type="button" value="Sign Up" />
+        </form>
+      </div>
+      <br />
+      <div class="footer-links">
+        <a href="/https://x.com/girldevelopit">Twitter</a> |
+        <a href="/https://www.facebook.com/girldevelopit">Facebook</a> |
+        <a
+          href="/https://www.flickr.com/photos/40453677@N00/albums/72157626841092971/"
+          >Flickr</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
