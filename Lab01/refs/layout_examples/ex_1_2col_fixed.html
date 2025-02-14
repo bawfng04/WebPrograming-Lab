@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+/* mac hide \*/
+html, body {
+	height:100%;
+	padding:0;
+	margin:0;
+}
+/* end hide*/
+body {
+	background:#D2DA9C;
+	color: #000000;
+}
+#outer {
+	min-height:100%;/*for mozilla as IE treats height as min-height anyway*/
+	margin-left:160px;
+	background:#ffffcc;
+	border-left:1px solid #000;
+	border-right:1px solid #000;
+	margin-bottom:-52px;
+	color: #000000;
+}
+* html #outer {
+	height:100%;
+}
+#header {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:70px;
+	background: #406700;
+	border-top:1px solid #000;
+	border-bottom:1px solid #000;
+	overflow:hidden;
+	color: #000000;
+}
+#left {
+	position:relative;/*ie needs this to show float */
+	width:160px;
+	float:left;
+	margin-left:-159px;/*must be 1px less than width otherwise won't push footer down */
+	left:-1px;/* line things up exactly*/
+	padding:72px 0 0;
+}
+* html #left {
+	margin-right:-3px
+}/* three pixel jog*/
+#left p {
+	padding-left:3px;
+	padding-right:2px
+}
+#footer {
+	width:100%;
+	clear:both;
+	height:50px;
+	border-top:1px solid #000;
+	border-bottom:1px solid #000;
+	background: #406700;
+	color: #000000;
+	text-align:center;
+	position:relative;
+	margin-top:-52px;
+}
+* html #footer {/*only ie gets this style*/
+	height:52px;/* for ie5 */
+	he\ight:50px;/* for ie6 */
+}
+#clearfooter {
+	clear:both;
+	height:52px;
+}/*needed to make room for footer*/
+#centrecontent {
+	float:right;
+	width:100%;
+	margin:0 0 0 -1px;
+	position:relative;
+	z-index:1;
+	padding:72px 0 0;
+}
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+#outer:after {
+	clear:both;
+	display:block;
+	height:1%;
+	content:" ";
+}
+</style>
+</head>
+<body>
+<div id="outer">
+	<div id="left">
+		<p>Start Left Content goes here : Left Content goes here : Left Content goes here 
+			: Left Content goes here : Left Content goes here : Left Content goes here 
+			: Left Content goes here : Left Content goes here : Left Content goes here 
+			: Left Content goes here : </p>
+	</div>
+	<div id="centrecontent">
+		<!--centre content goes here -->
+		<p>Start Centre Content goes here</p>
+		<p>2 column layout - any column can be the longest. Footer will stay at bottom 
+			of window unless content is greater then it stays at bottom of document.</p>
+		<p>Only tested on PC (IE5, 5.5 , 6, Mozilla 1.2 , Firebird 0.6.1, Opera7,Netscape 
+			6.2). Opera 6 doesn't like the footer but it's usable.I expect mac and other 
+			browsers will fall over. (<strong>*Update*</strong> Mac Firebird and Mac 
+			Netscape 6 &amp; 7 (OS9) look perfect in all cases. Mac IE 5.1.7 &amp; IE5.2.3 
+			and Safari1.1.1 don't like the footer and render it at bottom of the longest 
+			column. However the columns works fine ane the effect is still usable. Thanks 
+			to a number of people for checking this out for me as I don't have a mac 
+			to test on.)</p>
+		<p>The left column colours are the background showing through.</p>
+		<p>There is nothing special about this demo as similar techniques have been used before, however they are not usually integrated into one example.
+			The secret to this demo is the left  column which is floated negatively from the centre container. If you float them completely
+			in the gaps at the side then they don't clear the footer. However if you leave them overlapping the centre content by 1 pixel then
+			the footer is pushed down as required. The difference can be made up with padding etc.</p>
+	</div>
+	<div id="clearfooter"></div>
+	<!-- to clear footer -->
+</div>
+<!-- end outer div -->
+<div id="footer">Footer - |&nbsp; |&nbsp; |&nbsp; | - Footer
+	<p></p>
+</div>
+<div id="header">Header - No column longest - footer at bottom of window.
+	</div>
+</body>
+</html>

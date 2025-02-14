@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
+
+
+body {
+	margin:20px 10%;
+	padding:0 ;
+	background:#D1DCE9;
+	color:#000;
+}
+#container {
+	background:#B1B3D6;
+	border:1px solid #000;
+}
+#header {
+	border-bottom:1px solid red;
+	background:#ffffCC;
+	text-align:center;
+}
+#left {
+	margin-left:-169px;/* must be 1 pixel less than width*/
+	float:left;
+	width:170px;/* must be same as left margin on #middle*/
+	position:relative;
+	left:-2px;/* line up exactly */
+	display:inline;/* ie fix*/
+}
+#right {
+	margin-right:-169px;/* must be 1 pixel less than width*/
+	float:right;
+	width:170px;/* must be same as right margin on #middle*/
+	position:relative;
+	right:-2px;/* line up */
+	display:inline;/* ie fix*/
+}
+* html #left{margin-right:-3px;}/* 3 pixel jog*/
+* html #right{margin-left:-3px;}/* 3 pixel jog*/
+
+#middle {
+	border-left:1px solid red;
+	border-right:1px solid red;
+	background:#6FACD0;
+	margin-left:170px;
+	margin-right:170px;
+}
+/* mac hide and combat ie's 3 pixel jog \*/
+* html #centre{overflow:hidden;float:left;width:100%}
+* html #middle {height:1%;}
+/* end hide*/
+#footer {
+	clear:both;
+	border-top:1px solid red;
+	border-bottom:1px solid red;
+	height:50px;
+	background:yellow;
+	text-align:center;
+}
+h1,h3,p {margin-top:0}
+img{float:right;}
+.clearer{
+	height:1px;
+	overflow:hidden;	
+	margin-top:-1px;
+	clear:both;
+}
+</style>
+</head>
+<body>
+<div id="container"> 
+  <div id="header">
+    <h1>Header</h1>
+  </div>
+  <div id="middle"> 
+    <div id="left"> 
+      <p>Left Content :</p>
+      <p>Left Content :</p>
+      <p>Left Content :</p>
+      <p>Left Content :</p>
+      <p>Left Content :</p>
+    </div>
+    <div id="right"> 
+      <p>Right Content :</p>
+      <p>Right Content :</p>
+      <p>Right Content :</p>
+    </div>
+    <div id="centre"> 
+      <p>Simpler 
+        version of the 3 column layout that doesn't bother with the 100% height. 
+        This allows for the header and footer to have height:auto if required.</p>
+      <p> Any column can be the longest and the columns will equalise - what more 
+        could you ask for. </p>
+      <p>The left and right columns are coloured by the background of the container 
+        element. A different background colour can be applied to either column 
+        by using a repeating image as in my main example.</p>
+      <p>The left and right columns are a fixed width and the centre column is 
+        fluid.</p>
+    </div>
+    <div class="clearer"></div>
+  </div>
+  <div id="footer"> 
+    <h3>Footer - - Footer</h3>
+  </div>
+</div>
+</body>
+</html>

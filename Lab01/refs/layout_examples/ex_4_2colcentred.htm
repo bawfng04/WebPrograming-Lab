@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>2 column layout</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
+<!--
+body {
+	margin: 10px;
+	padding: 0;
+	text-align:center;/* center layout in ie5 and 5.5. */
+}
+#container {
+	width: 670px;
+	margin: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #829CC8;/* this is the background colour of the right column */
+	border: 1px solid #000;
+	text-align:left;
+}
+#content {
+	border: 1px solid #000;
+	padding: 0;
+	background-image: url(images/navbg.gif);/*this is the background colour of the left column */
+	background-repeat: repeat-y;
+	background-position: left top;
+}
+#left {
+	float:left;
+	border-right:1px solid #000;
+	width:199px;
+}
+#right {
+	float:left;
+	width:465px;
+	border-left:1px solid #000;
+	margin-left:-1px;/* makes border line up with #left border */
+}
+#header, #footer {
+	background:#FFFFCC;
+	text-align:center;
+
+}
+#header h1, #footer h1 {margin:0}
+#footer {background:#B8BBA8;}
+-->
+</style>
+</head>
+<body>
+<div id="container"> 
+  <div id="header">
+    <h1>This is the header content</h1>
+  </div>
+  <div id="content"> 
+    <div id="left"> 
+      <p>This is the left content text.</p>
+      <p>The background colourof this colums is a repeated image along thebackground 
+        y-axis of the container.</p>
+      <p>The right border of this float is merged with the left border of the 
+        right content to appear as one continuous border.</p>
+      <p>This is the left content text.</p>
+      <p>This is the left content text.</p>
+      <p>This is the left content text.</p>
+      <p>This is the left content text.</p>
+      <p>This is the left content text.</p>
+    </div>
+    <div id="right"> 
+      <p>This is the right content text.</p>
+      <p>Any column can be the longest and the columns will equalise.</p>
+      <p>This is the right content text.</p>
+      <p>This is the right content text.</p>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+  <div id="footer"> 
+    <h1>Footer | | Footer</h1>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>3 col layout with equalising columns and footer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="3colcentred_2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  
+<div id="outer"> 
+  <div id="innerwrap"> 
+    <div id="centrecontent"> 
+      <!--centre content goes here -->
+      <p><strong>3 column centred layout</strong> - any column can be the longest. 
+        Footer will stay at bottom of window unless content is greater then it 
+        stays at bottom of document.</p>
+      <p>Only tested on PC (IE5, 5.5 , 6, Mozilla 1.2 , Firebird 0.6.1, Opera7, 
+        Netscape 6.2). Opera 6 doesn't like the footer but it's usable. Mac IE 
+        5.1.7 &amp; IE5.2.3 and Safari 1.1.1 don't like the footer and render 
+        it at bottom of the longest column. However the columns should work fine 
+        and the effect is still usable. </p>
+      <p>This is a simpler version of my 3 column demo and because it is a fixed 
+        width we can do away with any real cleverness and just use a background 
+        image to display the borders and colours of all three columns</p>
+      <p>The content comes first in the html for better accessibility and SEO 
+        etc. The only drawback is that the header has to be absolutely positioned 
+        to allow this to happen. If you are not worried about this then put the 
+        header in the flow at the start of the html inside the main outer. </p>
+      <p>The distance of content from the footer is slightly different in various 
+        browers but I decide to leave it rather than complicate the layout with 
+        hacks etc</p>
+      <p>See the explaination on the main 3 col demo for more information on these 
+        designs. </p>
+    </div>
+    <div id="left"> 
+      <p><strong>2 Column Layouts </strong></p>
+      <ul>
+        <li><a href="http://www.pmob.co.uk/temp/2colfixedtest_4.htm">Example 1</a></li>
+        <li><a href="http://www.pmob.co.uk/temp/2colfixed_5.htm">Example 2</a></li>
+        <li><a href="http://www.pmob.co.uk/temp/2columncentred_equalising.htm">Example 3</a></li>
+        <li><a href="http://www.pmob.co.uk/temp/2column_simple_1.htm">Example 4</a></li>
+      </ul>
+      <p><strong>Other Layouts</strong></p>
+      <ul>
+        <li><a href="http://www.pmob.co.uk/temp/4colfixedtest_5.htm">4 Column Layout</a></li>
+        <li><a href="http://www.pmob.co.uk/temp/3colfluidtest_4.htm">3 columns all fluid</a></li>
+        <li><a href="http://www.pmob.co.uk/temp/3columnfluid_simple_1.htm">3 column fluid simple</a></li>
+        <li><a href="http://www.pmob.co.uk/temp/3column_simple_1.htm">3 column simple</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- end innerwrap -->
+  <div id="right"> 
+    <p>Right content goes here : Right content goes here : Right content goes 
+      here : Right content goes here : Right content goes here : Right content 
+      goes here : Right content goes here : Right content goes here : Right content 
+      goes here : </p>
+  </div>
+  <div id="clearfooter"></div>
+  <!-- ie needs this -->
+  <div id="header"> 
+    <p>Header - No column longest - footer at bottom of window.</p>
+    <p style="text-align:center"><strong>Back to the original Full screen <a href="http://www.pmob.co.uk/temp/3colfixedtest_4.htm"> 
+      3 column Demo</a></strong></p>
+  </div>
+<div id="footer">Footer - | <a href="http://www.pmob.co.uk/temp/3colcentred_2b.htm">Left column longest</a> 
+  | <a href="http://www.pmob.co.uk/temp/3colcentred_2c.htm">Centre column longest</a> | <a href="http://www.pmob.co.uk/temp/3colcentred_2d.htm">Right 
+  column longest</a> |<a href="http://www.pmob.co.uk/temp/3colcentred_2a.htm">No column longest</a> |- Footer 
+</div>
+</div>
+  <!-- end outer div -->
+  
+
+
+</body></html>
