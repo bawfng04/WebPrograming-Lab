@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>page_screenshot</title>
     <style>
       table,
@@ -14,7 +14,7 @@
   </head>
   <body>
     <div>
-      <img src="logo.png" alt="logo" />
+      <img src="logo.png" alt="logo">
       <h1>About</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -27,7 +27,7 @@
       </p>
       <h1>Intro</h1>
       <video width="550" controls>
-        <source src="video_sample.mp4" type="video/mp4" />
+        <source src="video_sample.mp4" type="video/mp4">
       </video>
 
       <h1>Our Locations</h1>
@@ -92,35 +92,49 @@
         </tbody>
       </table>
 
-      <div class="signup-div">
-        <h2> Sign Up! </h2>
-        <form action="/action_page.php">
-          <label>Name: </label>
-          <input name="name" type="text" size="20" title="Name" />
-          <br />
-          <label>Email: </label>
-          <input name="email" type="text" size="20" title="email" /> <br />
-          <label>Location: </label>
-          <select name="location" title="location">
-            <option> San Francisco </option>
-            <option> New York </option>
-          </select>
-          <br />
+    <div class="signup-div">
+        <h2>Sign Up!</h2>
+        <form action="#" method="POST" id="signup-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input id="name" name="name" type="text" size="20" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input id="email" name="email" type="email" size="20" required>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <select name="location" id="location">
+              <option>San Francisco</option>
+              <option>New York</option>
+            </select>
+          </div>
+
+
           <fieldset>
             <legend>Gender:</legend>
-            <label>Female</label>
-            <input name="gender" type="radio" title="Female" />
-            <label>Male</label>
-            <input name="gender" type="radio" title="Male" />
+            <div class="radio-group">
+              <input id="female" name="gender" type="radio" value="female" required>
+              <label for="female">Female</label>
+
+              <input id="male" name="gender" type="radio" value="male">
+              <label for="male">Male</label>
+            </div>
           </fieldset>
-          <br />
-          <label>Experience: </label> <br />
-          <textarea name="experiences" title="experience"> </textarea>
-          <br />
-          <input name="signup" type="button" value="Sign Up" />
+
+          <div class="form-group">
+            <label for="experience">Experience:</label>
+            <br>
+            <textarea id="experience" name="experiences" rows="4" cols="30"></textarea>
+          </div>
+
+          <button type="submit">Sign Up</button>
         </form>
       </div>
-      <br />
+      <br>
       <div class="footer-links">
         <a href="/https://x.com/girldevelopit">Twitter</a> |
         <a href="/https://www.facebook.com/girldevelopit">Facebook</a> |
