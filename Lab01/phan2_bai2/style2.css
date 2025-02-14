@@ -1,0 +1,83 @@
+.main-content {
+  font-family: Arial;
+}
+
+.header-logo {
+  width: 500px;
+  border: 1vw solid red;
+  border-radius: 2vw;
+}
+
+.section-title {
+  font-family: Georgia;
+  color: saddlebrown;
+}
+
+#introduction {
+  font-size: 2.5em;
+  text-shadow: 5px 5px blue;
+}
+
+.highlight-text {
+  font-weight: bold;
+}
+
+.highlight-item {
+  color: red;
+}
+
+.capital {
+  font-size: 5em;
+}
+
+.emphasized {
+  text-decoration: underline;
+  font-size: 1.5em;
+}
+
+.slanted {
+  font-style: italic;
+}
+
+.region-item {
+  margin-top: 0.7em;
+}
+
+.city-item {
+  margin-top: 0.7em;
+}
+
+.default-link {
+  color: blue;
+}
+
+.danger-link {
+  color: red;
+}
+
+.schedule-table,
+.header-cell,
+.data-cell {
+  border: 0.1em solid lightgrey;
+}
+
+.header-cell,
+.data-cell {
+  text-align: center;
+  padding: 0.5em;
+}
+
+.schedule-table {
+  border-collapse: collapse;
+}
+
+.twitter-link {
+  color: teal;
+  text-shadow: 2px 2px 5px black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-links {
+  margin-top: 2em;
+}
