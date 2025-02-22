@@ -495,6 +495,11 @@ nav a {
   border: 2px solid #ccc;
 }
 
+.finance-feature-image-a img {
+  height: 200px;
+  border: 2px solid #ccc;
+}
+
 .finance-feature-title {
   font-size: 1rem;
   font-weight: bold;
@@ -573,4 +578,570 @@ nav a {
 .flex {
   display: flex;
   gap: 10px;
+}
+
+.a-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Cột trái to hơn cột phải */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* CỘT TRÁI: TECHNOLOGY */
+.a-tech-column {
+  background: #fafafa;
+  padding: 20px;
+}
+
+.a-tech-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.5rem;
+}
+
+/* Bài nổi bật */
+.a-tech-feature {
+  margin-bottom: 2rem;
+  height: 400px;
+  background: url("./image.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.a-tech-label {
+  width: fit-content;
+  display: inline-block;
+  background: #f1c40f; /* Màu cho nhãn "Technology" */
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.a-tech-image img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  margin-top: 0.5rem;
+}
+
+.a-tech-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.75rem;
+  line-height: 1.4;
+}
+
+/* 3 bài nhỏ bên dưới - Grid 3 cột */
+.a-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.a-tech-card {
+  background: url("./image.png");
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+/* Nhãn trên mỗi card */
+.a-card-label {
+  display: inline-block;
+  color: #fff;
+  background: #f39c12;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  width: fit-content;
+}
+
+/* Thay đổi màu cho nhãn cụ thể */
+.a-exclusive {
+  background: red;
+}
+.a-music {
+  background: #f1c40f;
+}
+
+/* Ảnh trong card */
+.a-card-image img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+}
+
+.a-card-title {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  line-height: 1.3;
+}
+
+/* CỘT PHẢI: DESTINATIONS */
+.a-dest-column {
+  background: #fafafa;
+  padding: 20px;
+}
+
+.a-dest-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.5rem;
+}
+
+/* Danh sách item */
+.a-dest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.a-dest-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.a-dest-text {
+  flex: 1;
+}
+
+.a-dest-text p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  margin-top: 0.5rem;
+}
+
+/* Ảnh nhỏ bên phải */
+.a-dest-image img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+/* Nhãn LOCKED, MUSIC ở cột phải */
+.a-locked-label {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.a-music-label {
+  display: inline-block;
+  background: #f1c40f;
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.item-4-4-4 {
+  height: 300px;
+}
+/* a-container */
+
+.a-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif; /* Changed from serif to match other sections */
+  background-color: #fafafa; /* Added to match other sections */
+}
+
+/* Adjust the featured grid layout */
+.a-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.a-featured-article {
+  display: flex;
+}
+
+/* Adjust featured article images */
+.a-article-image-a {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+/* Adjust the articles grid */
+.a-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Adjust individual article styles */
+.a-article {
+  background: white;
+  padding: 10px;
+}
+
+.a-article-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.a-article-title {
+  font-size: 1rem;
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+/* Make the load more button consistent */
+.a-load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 20px;
+  background-color: #000066;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Adjust main title */
+.a-main-title {
+  text-align: left;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+}
+
+/* b container */
+.b-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* TIÊU ĐỀ TRANG */
+.b-header-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.5rem;
+}
+
+/* LAYOUT 2 CỘT: BÊN TRÁI (ARTICLES), BÊN PHẢI (SUBSCRIBE) */
+.b-main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* KHU VỰC BÀI VIẾT BÊN TRÁI */
+.b-articles-section {
+  background: #fafafa;
+  padding: 20px;
+}
+
+/* MỖI BÀI VIẾT */
+.b-article {
+  margin-bottom: 1.5rem;
+}
+
+.b-category {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+
+/* Tùy chỉnh màu cho từng category */
+.b-music {
+  background: #f1c40f;
+}
+.b-locked {
+  background: #000;
+}
+
+.b-article-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.b-article-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.b-article-image img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  margin-top: 0.5rem;
+}
+
+/* KHU VỰC ĐĂNG KÝ (SUBSCRIBE) BÊN PHẢI */
+.b-subscribe-section {
+  background: #fafafa;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.b-subscribe-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.b-subscribe-benefits {
+  list-style: disc inside;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.b-email-label {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.b-email-input {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.b-privacy {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.b-privacy-check {
+  margin-right: 0.5rem;
+}
+
+.b-privacy-label {
+  font-size: 0.85rem;
+}
+
+.b-subscribe-button {
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+/* FOOTER */
+.b-footer {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #000;
+  text-align: left;
+}
+
+.b-page-info {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* footer */
+.flex-a {
+  display: flex;
+  justify-content: center;
+}
+
+.f-footer {
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  font-family: sans-serif;
+  max-width: 1200px;
+}
+
+.f-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+}
+
+.f-logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.f-logo span {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.f-social {
+  display: flex;
+  gap: 10px;
+}
+
+.f-social-link {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-social-link img {
+  width: 20px;
+  height: 20px;
+}
+
+.f-main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.f-nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.f-active {
+  color: #ffb800;
+}
+
+.f-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+
+.f-column {
+  min-width: 0;
+}
+
+.f-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.f-description {
+  color: #999;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.f-links,
+.f-sitemap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.f-link {
+  color: white;
+  text-decoration: none;
+}
+
+.f-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.f-post {
+  color: #999;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.f-post:hover {
+  color: white;
+}
+
+.f-locked {
+  display: inline-block;
+  background-color: #000066;
+  color: white;
+  padding: 2px 8px;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.f-footer-bottom {
+  position: relative;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.f-copyright {
+  color: #999;
+  margin: 0;
+}
+
+.f-wave {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(
+      45deg,
+      transparent 33.33%,
+      #111 33.33%,
+      #111 66.66%,
+      transparent 66.66%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 33.33%,
+      #111 33.33%,
+      #111 66.66%,
+      transparent 66.66%
+    );
+  background-size: 20px 40px;
+  background-repeat: repeat-x;
 }
