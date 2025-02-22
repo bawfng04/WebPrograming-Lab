@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Layout Demo</title>
+      <!-- Kết nối với file CSS -->
+      <link rel="stylesheet" href="styles.css" />
+   </head>
+   <header>
+         <div class="top-bar">
+           <div class="logo"> 6.1 C Vietnam Thursday, February 6, 2025 </div>
+           <div class="account">
+             <a href="#" class="contact">About us</a>
+             <a href="#" class="contact">Contact us</a>
+           </div>
+         </div>
+         <nav>
+           <h1
+             >Website <br />
+             TITLE</h1
+           >
+           <ul>
+             <li><a href="#" class="home">HOME</a></li>
+             <li><a href="#" class="home">WOMEN</a></li>
+             <li><a href="#" class="home">CELEBRITY</a></li>
+             <li><a href="#" class="home">TRAVEL</a></li>
+             <li><a href="#" class="home">FOOD</a></li>
+             <li><a href="#" class="home">MUSIC</a></li>
+           </ul>
+           <div class="search"> My account </div>
+         </nav>
+       </header>
+   <body>
+      <div class="container">
+         <!-- Cột trái: Breaking News -->
+         <div class="left-column">
+            <h2 class="section-title">Breaking news</h2>
+            <!-- Bài viết 1 -->
+            <div class="news-item">
+               <span class="category politics">Politics</span>
+               <h3 class="news-title"
+                  >Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                  eius
+               </h3
+                  >
+               <p class="news-desc">
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit ut labore et
+                  dolore magna aliqua Ut enim ad minim veniam
+               </p>
+               <div class="meta-info">
+                  <span class="locked">LOCKED</span>
+                  <span class="date">March 8, 2025</span>
+               </div>
+            </div>
+            <!-- Bài viết 2 -->
+            <div class="news-item">
+               <span class="category technology">Technology</span>
+               <h3 class="news-title"
+                  >Lorem ipsum dolor sit amet consectetur adipiscing elit sed do</h3
+                  >
+               <div class="meta-info">
+                  <span class="locked">LOCKED</span>
+                  <span class="date">March 8, 2025</span>
+               </div>
+            </div>
+            <!-- Bài viết 3 -->
+            <div class="news-item">
+               <span class="category celebrity">Celebrity</span>
+               <h3 class="news-title"
+                  >Lorem ipsum dolor sit amet consectetur adipiscing elit sed do</h3
+                  >
+               <div class="meta-info">
+                  <span class="locked">LOCKED</span>
+                  <span class="date">March 8, 2025</span>
+               </div>
+            </div>
+         </div>
+         <!-- Cột giữa: Marketing -->
+         <div class="middle-column">
+            <div class="marketing-block">
+               <span class="category marketing">Marketing</span>
+               <h2 class="marketing-title"
+                  >Lorem ipsum dolor sit amet consectetur adipiscing elit sed</h2
+                  >
+               <!-- Ảnh lớn ở giữa -->
+               <div class="image-placeholder">
+                  <img src="./image.png" alt="placeholder" />
+               </div>
+               <p class="marketing-desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+                  imperdiet urna. Quisque sollicitudin, justo vitae commodo bibendum,
+                  nunc ligula auctor velit, a pulvinar magna nunc a mauris.
+               </p>
+            </div>
+         </div>
+         <!-- Cột phải: Popular -->
+         <div class="right-column">
+            <h2 class="section-title">Popular:</h2>
+            <div class="popular-item">
+               <span class="category finance">Finance</span>
+               <p class="popular-desc"
+                  >Lorem ipsum dolor sit amet consectetur adipiscing elit sed</p
+                  >
+               <div class="popular-image">
+                  <img src="./image.png" alt="placeholder" />
+               </div>
+            </div>
+            <div class="popular-item">
+               <span class="category music">Music</span>
+               <p class="popular-desc"
+                  >Lorem ipsum dolor sit amet consectetur adipiscing elit sed</p
+                  >
+               <div class="popular-image">
+                  <img src="./image.png" alt="placeholder" />
+               </div>
+            </div>
+         </div>
+        </div>
+      </div>
+      </div>
+      <div class="second">
+      <div class="blackbar">
+        <h1>Stay on top of what's going on with our subscription deal!</h1>
+        <button class="scrbtn">Subscribe</button>
+      </div>
+      </div>
+      <div>
+          <div class="news-page">
+    <!-- CỘT 1: War in Ukraine -->
+    <div class="ukraine-column">
+      <div class="ukraine-header">
+        <h2 class="ukraine-heading">War in Ukraine</h2>
+        <button class="view-all-button">VIEW ALL</button>
+      </div>
+
+      <!-- Bài nổi bật bên trên (có ảnh to) -->
+       <div class="flex">
+       <div class="copy">
+        <div class="ukraine-feature">
+          <div class="ukraine-feature-image">
+            <img src="./image.png" alt="ukraine feature" />
+          </div>
+          <h3 class="ukraine-feature-title">
+            <span class="locked-label">LOCKED</span>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+          </h3>
+          <p class="ukraine-feature-description">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
+            tempor incididunt ut labore
+          </p>
+        </div>
+
+        <!-- Danh sách các tin LOCKED -->
+        <div class="ukraine-list">
+          <div class="ukraine-item">
+            <span class="locked-label">LOCKED</span>
+            <h4 class="ukraine-item-title">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+            </h4>
+          </div>
+          <div class="ukraine-item">
+            <span class="locked-label">LOCKED</span>
+            <h4 class="ukraine-item-title">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+            </h4>
+          </div>
+          <div class="ukraine-item">
+            <span class="locked-label">LOCKED</span>
+            <h4 class="ukraine-item-title">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+            </h4>
+          </div>
+        </div>
+      </div>
+
+             <div class="copy">
+        <div class="ukraine-feature">
+          <div class="ukraine-feature-image">
+            <img src="./image.png" alt="ukraine feature" />
+          </div>
+
+          <h3 class="ukraine-feature-title">
+            <span class="locked-label">LOCKED</span>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+          </h3>
+          <p class="ukraine-feature-description">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
+            tempor incididunt ut labore
+          </p>
+        </div>
+
+        <!-- Danh sách các tin LOCKED -->
+        <div class="ukraine-list">
+          <div class="ukraine-item">
+            <span class="locked-label">LOCKED</span>
+            <h4 class="ukraine-item-title">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+            </h4>
+          </div>
+          <div class="ukraine-item">
+            <span class="locked-label">LOCKED</span>
+            <h4 class="ukraine-item-title">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+            </h4>
+          </div>
+          <div class="ukraine-item">
+            <span class="locked-label">LOCKED</span>
+            <h4 class="ukraine-item-title">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+            </h4>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+
+    <!-- CỘT 2: Finance -->
+    <div class="finance-column">
+      <h2 class="finance-heading">Finance</h2>
+
+      <!-- Bài nổi bật bên trên (có ảnh) -->
+      <div class="finance-feature">
+        <div class="finance-feature-image">
+          <img src="./image.png" alt="finance feature" />
+        </div>
+        <h3 class="finance-feature-title">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+        </h3>
+      </div>
+
+      <!-- Danh sách tin LOCKED -->
+      <div class="finance-list">
+        <div class="finance-item">
+          <span class="locked-label">LOCKED</span>
+          <h4 class="finance-item-title">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+          </h4>
+        </div>
+        <div class="finance-item">
+          <span class="locked-label">LOCKED</span>
+          <h4 class="finance-item-title">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+          </h4>
+        </div>
+        <div class="finance-item">
+          <span class="locked-label">LOCKED</span>
+          <h4 class="finance-item-title">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- CỘT 3: Marketing -->
+    <div class="marketing-column">
+      <h2 class="marketing-heading">Marketing</h2>
+
+      <!-- Bài nổi bật bên trên (có ảnh) -->
+      <div class="marketing-feature">
+        <div class="marketing-feature-image">
+          <img src="./image.png" alt="marketing feature" />
+        </div>
+        <h3 class="marketing-feature-title">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+        </h3>
+      </div>
+
+      <!-- Danh sách tin LOCKED -->
+      <div class="marketing-list">
+        <div class="marketing-item">
+          <span class="locked-label">LOCKED</span>
+          <h4 class="marketing-item-title">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+          </h4>
+        </div>
+        <div class="marketing-item">
+          <span class="locked-label">LOCKED</span>
+          <h4 class="marketing-item-title">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+          </h4>
+        </div>
+        <div class="marketing-item">
+          <span class="locked-label">LOCKED</span>
+          <h4 class="marketing-item-title">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+          </h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+      </div>
+   </body>
+</html>
+<!-- <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>News Website</title>
+       <link rel="stylesheet" href="styles.css" />
+     </head>
+     <body>
+       <header>
+         <div class="top-bar">
+           <div class="logo"> 6.1 C Vietnam Thursday, February 6, 2025 </div>
+           <div class="account">
+             <a href="#" class="contact">About us</a>
+             <a href="#" class="contact">Contact us</a>
+           </div>
+         </div>
+         <nav>
+           <h1
+             >Website <br />
+             TITLE</h1
+           >
+           <ul>
+             <li><a href="#" class="home">HOME</a></li>
+             <li><a href="#" class="home">WOMEN</a></li>
+             <li><a href="#" class="home">CELEBRITY</a></li>
+             <li><a href="#" class="home">TRAVEL</a></li>
+             <li><a href="#" class="home">FOOD</a></li>
+             <li><a href="#" class="home">MUSIC</a></li>
+           </ul>
+           <div class="search"> My account </div>
+         </nav>
+       </header>
+
+       <div class="container">
+         <section class="breakingNews">
+           <div class="breakingNewsLeft">
+             <div>Breaking news</div> <div>Politics</div>
+             <div
+               >Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+               eius</div
+             >
+             <div
+               >Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+               eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim
+               ad minim veniam</div
+             >
+             LOCKED amet consectetur adipiscing elit sed do eiusmo
+             <div>Finance March 8, 2025</div>
+             <div
+               >Lorem ipsum dolor sit amet consectetur adipiscing elit sed do</div
+             >
+             <div>Technology March 8, 2025</div>
+             <div
+               >LOCKED Lorem ipsum dolor sit amet consectetur adipiscing elit sed
+               do ei</div
+             >
+             <div>Celebrity March 8, 2025</div>
+             <div>>Lorem ipsum dolor sit</div>
+           </div>
+           <div class="breakingNewsMiddle">
+             <div class="top-image">
+               <img src="./image.png" alt="image" class="top-image" />
+             </div>
+             <div class="top-text">Marketing</div>
+             <div class="top-description"
+               >Lorem ipsum dolor sit amet consectetur adipiscing elit sed</div
+             >
+           </div>
+
+           <div class="breakingNewsRight">
+             <div>Popular:</div>
+             <img src="./image.png" alt="image" class="popular-image" />
+             <div>Lorem ipsum dolor sit amet consectetur adipiscing elit sed</div>
+             <div>Finance</div>
+             <img src="./image.png" alt="image" class="popular-image" />
+             <div>Music</div>
+             <div>Lorem ipsum dolor sit amet consectetur adipiscing elit sed</div>
+             <div
+               >LOCKED Lorem ipsum dolor sit amet consectetur adipiscing elit
+               sed</div
+             >
+           </div>
+         </section>
+       </div>
+
+       <footer>
+         <div class="footer-content">
+           <div class="footer-section">
+             <h4>Company</h4>
+             <p
+               >Best magazine to our new updates and news on your mobile site very
+               efficiently about us to find out more</p
+             >
+             <a href="#">Contact Us</a>
+           </div>
+           <div class="footer-section">
+             <h4>Latest</h4>
+             <ul>
+               <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+               <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+               <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+             </ul>
+           </div>
+           <div class="footer-section">
+             <h4>Popular</h4>
+             <ul>
+               <li><a href="#">News</a></li>
+               <li><a href="#">Celebrity</a></li>
+               <li><a href="#">Music</a></li>
+             </ul>
+           </div>
+           <div class="footer-section">
+             <h4>Sitemap</h4>
+             <ul>
+               <li><a href="#">Home</a></li>
+               <li><a href="#">Women</a></li>
+               <li><a href="#">Travel</a></li>
+             </ul>
+           </div>
+         </div>
+       </footer>
+     </body>
+   </html> -->
