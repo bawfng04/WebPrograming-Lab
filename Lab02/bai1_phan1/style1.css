@@ -1011,6 +1011,7 @@ nav.mobile-active ul {
   .f-main-nav {
     flex-wrap: wrap;
     gap: 15px 30px;
+    font-size: 10px;
   }
 
   nav ul {
@@ -1047,6 +1048,38 @@ nav.mobile-active ul {
     height: 80px;
     object-fit: cover;
   }
+
+  .a-articles-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .a-tech-feature {
+    height: 300px;
+  }
+
+  .f-content {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+  }
+
+  .blackbar {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .a-dest-item {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
+
+  .a-dest-image img {
+    width: 80px;
+    height: 80px;
+  }
+
+
 }
 
 /* responsive cho dt */
@@ -1160,11 +1193,13 @@ nav.mobile-active ul {
     grid-template-rows: auto auto;
     gap: 5px;
     text-align: center;
-    font-size: 8px;
     background-color: transparent;
   }
 
-  /* Target specific navigation links to control their placement */
+  .f-main-nav a{
+    font-size: 14px;
+  }
+
   .f-nav-link:nth-child(1),
   .f-nav-link:nth-child(2),
   .f-nav-link:nth-child(3),
@@ -1184,6 +1219,10 @@ nav.mobile-active ul {
   .f-content {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .b-article-title{
+    font-size: 25px;
   }
 
   .f-column {
@@ -1225,7 +1264,8 @@ nav.mobile-active ul {
   }
 
   .f-footer {
-    padding: 20px;
+    padding: 20px 10px;
+    width: 100%;
   }
 
   header nav {
@@ -1245,13 +1285,13 @@ nav.mobile-active ul {
 }
 
 .h-sidebar {
-  width: 250px;
+  width: 150px;
   background: linear-gradient(to bottom, #444, #222);
   color: white;
-  padding: 20px;
+  padding: 20px 30px 20px 50px;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 10;
   animation: slideIn 0.5s;
 }
 
@@ -1297,3 +1337,4 @@ nav.mobile-active ul {
     opacity: 1;
   }
 }
+
