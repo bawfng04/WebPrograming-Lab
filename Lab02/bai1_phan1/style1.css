@@ -1338,3 +1338,18 @@ nav.mobile-active ul {
   }
 }
 
+
+
+.bknab{
+  display: flex;
+  justify-content: space-between;
+}
+
+.readmore{
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  max-width: 150px;
+  font-size: 15px;
+}
