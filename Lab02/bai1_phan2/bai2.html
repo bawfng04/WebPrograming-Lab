@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .main-main-div {
+        width: 1000px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 5px solid black;
+      }
+
+      .site-title {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .top-links {
+        margin-left: 20px;
+      }
+
+      .top-links a {
+        margin-right: 10px;
+        color: blue;
+        text-decoration: none;
+      }
+
+      .search-container {
+        display: flex;
+      }
+
+      .search-container input {
+        padding: 8px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        width: 200px;
+      }
+
+      .main-container {
+        display: flex;
+        flex: 1;
+      }
+
+      .sidebar {
+        width: 180px;
+        border-right: 5px solid black;
+        border-left: 5px solid black;
+      }
+
+      .category-header {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-bottom: 1px solid black;
+        font-weight: bold;
+      }
+
+      .sidebar-section {
+        border-bottom: 5px solid black;
+      }
+
+      .sidebar-section h3 {
+        background-color: #f0f0f0;
+        padding: 10px;
+        font-weight: bold;
+      }
+
+      .sidebar-item {
+        padding: 5px 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .sidebar-item:last-child {
+        border-bottom: none;
+      }
+
+      .content {
+        flex: 1;
+        padding: 15px;
+      }
+
+      .breadcrumb {
+        margin-bottom: 20px;
+      }
+
+      .breadcrumb a {
+        color: blue;
+        text-decoration: none;
+      }
+
+      /* Product display */
+      .product-container {
+        display: flex;
+        margin-bottom: 30px;
+      }
+
+      .product-images {
+        width: 330px;
+      }
+
+      .main-image {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .main-image::before,
+      .main-image::after {
+        content: "";
+        position: absolute;
+        background-color: #000;
+        width: 2px;
+        height: 425px;
+        top: -62px;
+        left: 149px;
+        transform: rotate(45deg);
+      }
+
+      .main-image::after {
+        transform: rotate(-45deg);
+      }
+
+      .thumbnail-container {
+        display: flex;
+        gap: 10px;
+      }
+
+      .thumbnail {
+        width: 67px;
+        height: 67px;
+        border: 1px solid #000;
+        position: relative;
+      }
+
+      .thumbnail::before,
+      .thumbnail::after {
+        content: "";
+        position: absolute;
+        background-color: #000;
+        width: 1px;
+        height: 95px;
+        top: -14px;
+        left: 33px;
+        transform: rotate(45deg);
+      }
+
+      .thumbnail::after {
+        transform: rotate(-45deg);
+      }
+
+      .product-info {
+        flex: 1;
+      }
+
+      .product-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .product-summary {
+        margin-bottom: 20px;
+      }
+
+      .product-summary h3 {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .product-summary p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .buy-button {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 2px solid #000;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        margin-top: 15px;
+        transition: background-color 0.3s;
+      }
+
+      .buy-button:hover {
+        background-color: #f0f0f0;
+      }
+
+      .dimensions {
+        float: right;
+        color: #999;
+        margin-top: 20px;
+      }
+
+      .product-description {
+        margin-top: 20px;
+      }
+
+      .product-description h3 {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .product-description p {
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+
+      .right-sidebar {
+        border-left: 5px solid black;
+        border-right: 5px solid black;
+      }
+
+      .right-sidebar1 {
+        width: 160px;
+        height: 600px;
+      }
+
+      .right-sidebar2 {
+        height: 100px;
+        border-top: 5px solid black;
+      }
+
+      footer {
+        padding: 10px;
+        text-align: center;
+        border: 5px solid black;
+      }
+
+      header {
+        border: 5px solid black;
+      }
+
+      footer p {
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      footer a {
+        margin: 0 5px;
+        color: blue;
+        text-decoration: none;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .buy-button {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .thumbnail:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+      }
+
+      @media (max-width: 900px) {
+        .main-container {
+          flex-direction: column;
+        }
+
+        .sidebar,
+        .right-sidebar {
+          width: 100%;
+          border: none;
+          border-bottom: 5px solid black;
+        }
+
+        .product-container {
+          flex-direction: column;
+        }
+
+        .product-images,
+        .product-info {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-main-div">
+      <header>
+        <div class="header-left">
+          <span class="site-title">Site Title</span>
+          <span class="top-links">
+            <a href="#">Categories</a> | <a href="#">Contact us</a> |
+            <a href="#">Follow us</a>
+          </span>
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Search" />
+        </div>
+      </header>
+
+      <div class="main-container">
+        <div class="sidebar">
+          <div class="category-header">Category</div>
+          <div class="sidebar-items">
+            <div class="sidebar-item">Item 1...</div>
+            <div class="sidebar-item">Item 2...</div>
+            <div class="sidebar-item">Item 3...</div>
+            <div class="sidebar-item">Item 4...</div>
+            <div class="sidebar-item">Item 5...</div>
+          </div>
+          <div class="sidebar-section">
+            <h3>Top Products</h3>
+            <div class="sidebar-item">Item 1...</div>
+            <div class="sidebar-item">Item 2...</div>
+            <div class="sidebar-item">Item 3...</div>
+            <div class="sidebar-item">Item 4...</div>
+            <div class="sidebar-item">Item 5...</div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="breadcrumb">
+            <a href="#">Home</a> &gt; <a href="#">Main Category</a> &gt;
+            <a href="#">Sub Category</a>
+          </div>
+
+          <div class="product-container">
+            <div class="product-images">
+              <div class="main-image"></div>
+              <div class="thumbnail-container">
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <h1 class="product-title">Sample Product Title</h1>
+              <div class="product-summary">
+                <h3>Summary:</h3>
+                <p
+                  >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea</p
+                >
+              </div>
+              <a href="#" class="buy-button">Buy Now</a>
+            </div>
+          </div>
+
+          <div class="product-description">
+            <h3>Description:</h3>
+            <p
+              >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p
+            >
+          </div>
+        </div>
+
+        <div class="right-sidebar">
+          <div class="right-sidebar1"></div>
+          <div class="right-sidebar2"></div>
+        </div>
+      </div>
+
+      <footer>
+        <p>Footer Information ...</p>
+        <div>
+          <a href="#">Link 1</a> | <a href="#">Link 2</a> |
+          <a href="#">Link 3</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
