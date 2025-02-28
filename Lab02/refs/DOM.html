@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 2</title>
+<style>
+pre {
+	border:1px gray solid;
+	padding:15px 15px 15px 15px
+}
+body {
+	font-weight:bold;
+	font-size:medium
+}
+</style>
+</head>
+
+<body>
+location - This object both allows you to check on what address has been passed to the current page but also to load a new page into the browser.
+<pre>
+setTimeout(function() {location.replace('nextpage.htm');}, 10000);</pre>
+      
+Open A Window - While JavaScript can be used to open a new browser window, there is seldom a need to with modern browsers. Where you do open a new window you should attempt to reuse it if possible.
+<pre>
+newwin = function(page) {window.open(page,'javascriptabout',,true);}</pre>
+
+Close A Window - JavaScript can close a browser window but only from the page that was opened in the new window by JavaScript or by the page that opened the new window.
+<pre>
+var mywin; newwin = function(page) {
+	return window.open(page,'javascriptabout',,true);
+}
+mywin = newwin('next.htm');
+mywin.close();</pre>
+
+Get an id Node - The simplest of the ways to access the content of your web page from JavaScript is to use the getElementById method to access a single node representing a tag within the page with a specific id.
+<pre>document.getElementById('example').innerHTML = 'hello world';</pre>
+
+Get Nodes For a Tag Name - We can retrieve all of the nodes corresponding to a specific type of tag within the web page into a nodelist by using getElementsByTagName.
+<pre>var node; node = document.getElementsByTagName('p');
+for (var i = node.length-1; i>=0; i--) {
+	node[i].innerHTML = 'hello world';
+}</pre>
+
+Get Nodes For a Name - This is not as useful as the other node retrieval methods because the only place you ought to find multiple tags in the page having the same name are inside of forms - primarily with radio buttons.
+<pre>var node; node = document.getElementsByName('size');
+for (var i = node.length-1; i>=0; i--) {
+	node[i].style.background-color = '#000';
+}</pre>
+
+Get Nodes For a Class - Not all browsers provide a way to get a nodelist of all the elements for a given class and so we should add our own.
+
+Get Next Node - Nodes at the same level in the hierarchy of your page are called siblings. The nextSibling property of a node provides a pointer to the next node at the same level.
+<pre>var node;
+node = document.getElementById('first');
+while (node) {
+  if (3 !== node.nodeType && 'SCRIPT' !== node.nodeName)
+    node.innerHTML = 'y';
+  node = node.nextSibling;
+}</pre>
+
+Get Previous Node - Just as the nextSibling property points to the next node at the same level, the previousSibling property points back the other way.
+<pre>var node;
+node = document.getElementById('last');
+while (node) {
+  if (3 !== node.nodeType && 'SCRIPT' !== node.nodeName)
+    node.innerHTML = 'y';
+  node = node.previousSibling;
+}</pre>
+
+Get Parent Node - Node properties don't just include pointers to the immediately adjacent sibling nodes, there is also a pointer to the parent node (the tag within which the current element or text is contained).
+<pre>
+var node;
+node = document.getElementById('me').parentNode;
+node.style.background-color = '#f00';</pre>
+
+Get All Child Nodes - The property allowing us to access the nodes contained within the current node is actually a nodelist since a node can of course contain more than one node.
+<pre>
+var node;
+node = document.getElementById('me').parentNode..childNodes;
+for (var i = 0, ii = node.length; i < ii; i++)
+  if (3 !== node[i].nodeType && 'SCRIPT' !== node[i].nodeName)
+    node[i].innerHTML += 'child';
+}</pre>
+
+Get Attributes - We've looked at a lot of different ways of accessing nodes. Now it is time to start looking at how to access the information associated with those nodes. Here we look at accessing the attributes that are contained within each tag.
+<pre>var rad, tx;
+rad = document.getElementById('r1');
+tx = 'The value of the name attribute of the first radio button is "' +
+  rad.name + '"';
+document.getElementById('txt').innerHTML = tx;</pre>
+
+Get Styles - It doesn't matter whether the style is set in an external stylesheet, within a style tag in the head of the page or even in a style attribute, JavaScript accesses the information about how the tag should be styled in exactly the same way.
+<pre>var rad, tx;
+rad = document.getElementById('r1');
+tx = 'The background colour of the first radio button is "' + rad.style.backgroundColor + '"';
+document.getElementById('txt').innerHTML = tx;</pre>
+
+innerHTML - While not a part of the official standards this property works in all modern browsers to provide an easy way to replace the content of a tag without updating the DOM.
+<pre>document.getElementById('ex').innerHTML = '<em>hello world<\/em>';</pre>
+
+Remove a Node - The first of the examples on how to update the node itself, starting with how to delete a node from the web page.
+<pre>
+var dv;
+dv = document.getElementById('ex');
+dv.parentNode.removeChild(dv);</pre>
+
+Create an Element - An element needs to exist before you can add it into a web page.
+<pre>
+var newP;
+newP = document.createElement("p");
+newP.id = 'new'; </pre>
+
+Create a Text Node - They are created in a slightly different way to element nodes.
+<pre>var txt, newT;
+txt = 'Text to be added to a new text node';
+newT = document.createTextNode(txt);
+</pre>
+
+Add a Child Node - One way to add new nodes to a web page is to specify the parent node you want to attach it to.
+<pre>
+var dv, newP;
+newP = document.createElement("p");
+newP.id = 'new'; dv = document.getElementById('ex');
+dv.appendChild(newP);</pre>
+
+Replace a Node - we don't need to add the new node and then delete the old or delete the old and then add the new.
+<pre>var exP, newP;
+newP = document.createElement("p");
+newP.id = 'new'; exP = document.getElementById('bf');
+exP.parentNode.replaceChild(newP,exP);</pre>
+
+Add an Option to a Select - There's a simple way to do this.
+<pre>addOption = function(id, val, txt) {
+	var selbox;
+	selbox = document.getElementById(id);
+	selbox.options[selbox.options.length] = new Option(txt, val);
+}</pre>
+
+Getting The Selected Option - There is always an option that is selected within a select list.
+<pre>getOption = function(id) {
+	var selbox;
+	selbox = document.getElementById(id);
+	return {
+		value: selbox.options[selbox.selectedIndex].value,
+		text: selbox.options[selbox.selectedIndex].text
+	};
+}</pre>
+
+
+Submit A Form - Most processing related to submitting the form works with the entire form and not the submit button.
+<pre>document.getElementById('form').submit()</pre>
+
+Learn more from this site. <a href="http://javascript.about.com/od/byexample/a/Javascript-By-Example.htm">Click here!</a>
+
+</body>
+</html>
