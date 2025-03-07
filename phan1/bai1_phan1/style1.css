@@ -1357,3 +1357,94 @@ nav.mobile-active ul {
   font-size: 15px;
   border: none;
 }
+
+
+
+.h-sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+  color: white;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.h-hidden {
+  transform: translateX(-100%);
+}
+
+.h-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.h-close:hover {
+  transform: scale(1.2);
+  color: #f39c12;
+}
+
+.h-signin {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px 0 35px;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.h-signin:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.h-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.h-menu-item {
+  font-size: 16px;
+  margin: 15px 0;
+  padding: 8px 0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.h-menu-item:hover {
+  color: #f39c12;
+  transform: translateX(10px);
+}
+
+.h-home {
+  color: #f39c12;
+  border-left: 3px solid #f39c12;
+  padding-left: 10px;
+}
+
+.menu {
+  cursor: pointer;
+}
+
+.menu img {
+  width: 28px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.menu:hover img {
+  transform: scale(1.1);
+}
