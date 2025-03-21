@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Đăng Ký Thành Viên</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div id="errorContainer" class="alert alert-danger d-none"></div>
+      <h1 class="mb-4">Đăng Ký Thành Viên</h1>
+      <form action="form.php" method="POST" id="registerForm">
+        <!-- First Name -->
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            placeholder="Nhập First Name"
+          />
+        </div>
+        <!-- Last Name -->
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            name="lastName"
+            placeholder="Nhập Last Name"
+          />
+        </div>
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="example@mail.com"
+          />
+        </div>
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Nhập password"
+          />
+        </div>
+        <!-- Birthday -->
+        <div class="mb-3">
+          <label class="form-label">Birthday:</label>
+          <div class="row">
+            <div class="col">
+              <select id="day" name="day" title="day" class="form-select">
+                <option value="">Day</option>
+                <!-- Tạo các option từ 1 đến 31 -->
+                <!-- Có thể sinh động tạo bằng Javascript, đây là minh họa tĩnh -->
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+              </select>
+            </div>
+            <div class="col">
+              <select id="month" name="month" title="month" class="form-select">
+                <option value="">Month</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <div class="col">
+              <select id="year" name="year" title="year" class="form-select">
+                <option value="">Year</option>
+                <!-- Ví dụ: tạo từ 1980 đến 2025 -->
+                <option>1980</option>
+                <option>1981</option>
+                <option>1982</option>
+                <option>1983</option>
+                <option>1984</option>
+                <option>1985</option>
+                <option>1986</option>
+                <option>1987</option>
+                <option>1988</option>
+                <option>1989</option>
+                <option>1990</option>
+                <option>1991</option>
+                <option>1992</option>
+                <option>1993</option>
+                <option>1994</option>
+                <option>1995</option>
+                <option>1996</option>
+                <option>1997</option>
+                <option>1998</option>
+                <option>1999</option>
+                <option>2000</option>
+                <option>2001</option>
+                <option>2002</option>
+                <option>2003</option>
+                <option>2004</option>
+                <option>2005</option>
+                <option>2006</option>
+                <option>2007</option>
+                <option>2008</option>
+                <option>2009</option>
+                <option>2010</option>
+                <option>2011</option>
+                <option>2012</option>
+                <option>2013</option>
+                <option>2014</option>
+                <option>2015</option>
+                <option>2016</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- Gender -->
+        <div class="mb-3">
+          <label class="form-label">Gender:</label><br />
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="male"
+              value="Male"
+            />
+            <label class="form-check-label" for="male">Nam</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="female"
+              value="Female"
+            />
+            <label class="form-check-label" for="female">Nữ</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="other"
+              value="Other"
+            />
+            <label class="form-check-label" for="other">Không xác định</label>
+          </div>
+        </div>
+        <!-- Country -->
+        <div class="mb-3">
+          <label for="country" class="form-label">Country:</label>
+          <select id="country" name="country" class="form-select">
+            <option value="">Chọn quốc gia</option>
+            <option value="Vietnam">Vietnam</option>
+            <option value="Australia">Australia</option>
+            <option value="US">United States</option>
+            <option value="India">India</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <!-- About -->
+        <div class="mb-3">
+          <label for="about" class="form-label">About:</label>
+          <textarea
+            id="about"
+            name="about"
+            class="form-control"
+            rows="5"
+            placeholder="Thông tin giới thiệu (tối đa 10000 kí tự)"
+          ></textarea>
+        </div>
+        <!-- Submit & Reset -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+      </form>
+    </div>
+
+    <script>
+      function showError(message) {
+        const errorContainer = document.getElementById("errorContainer");
+        errorContainer.textContent = message;
+        errorContainer.classList.remove("d-none");
+        setTimeout(() => {
+          errorContainer.classList.add("d-none");
+        }, 10000);
+      }
+
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const errorContainer = document.getElementById("errorContainer");
+          errorContainer.classList.add("d-none");
+
+          const formData = new FormData(this);
+
+          fetch("form.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then((data) => {
+              if (data.status === "success") {
+                alert(data.message);
+              } else {
+                showError(data.errors.join("\n"));
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              showError(
+                "Có lỗi xảy ra trong quá trình xử lý: " + error.message
+              );
+            });
+        });
+    </script>
+  </body>
+</html>
