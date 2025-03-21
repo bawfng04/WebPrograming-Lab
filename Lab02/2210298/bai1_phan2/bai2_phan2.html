@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic HTML Table</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/d  ist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-4">Tạo và Chỉnh sửa HTML Table động</h1>
+      <div class="mb-3">
+        <button id="createTable" class="btn btn-primary">Tạo bảng (2x2)</button>
+        <button id="addRow" class="btn btn-secondary" disabled
+          >Thêm hàng</button
+        >
+        <button id="addColumn" class="btn btn-secondary" disabled
+          >Thêm cột</button
+        >
+        <button id="deleteRow" class="btn btn-danger" disabled>Xoá hàng</button>
+        <button id="deleteColumn" class="btn btn-danger" disabled
+          >Xoá cột</button
+        >
+        <button id="deleteTable" class="btn btn-dark" disabled>Xoá bảng</button>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="rowIndex" class="form-label"
+            >Chỉ số hàng cần xoá (0-index):</label
+          >
+          <input
+            type="number"
+            id="rowIndex"
+            class="form-control"
+            placeholder="Nhập chỉ số hàng"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="colIndex" class="form-label"
+            >Chỉ số cột cần xoá (0-index):</label
+          >
+          <input
+            type="number"
+            id="colIndex"
+            class="form-control"
+            placeholder="Nhập chỉ số cột"
+          />
+        </div>
+      </div>
+      <div id="tableContainer"></div>
+    </div>
+
+    <script>
+      // Gán sự kiện cho các nút
+      document
+        .getElementById("createTable")
+        .addEventListener("click", function () {
+          createTable();
+        });
+
+      document.getElementById("addRow").addEventListener("click", function () {
+        addRow();
+      });
+
+      document
+        .getElementById("addColumn")
+        .addEventListener("click", function () {
+          addColumn();
+        });
+
+      document
+        .getElementById("deleteRow")
+        .addEventListener("click", function () {
+          const rowIndex = parseInt(document.getElementById("rowIndex").value);
+          if (isNaN(rowIndex)) {
+            alert("Vui lòng nhập chỉ số hàng hợp lệ.");
+            return;
+          }
+          deleteRow(rowIndex);
+        });
+
+      document
+        .getElementById("deleteColumn")
+        .addEventListener("click", function () {
+          const colIndex = parseInt(document.getElementById("colIndex").value);
+          if (isNaN(colIndex)) {
+            alert("Vui lòng nhập chỉ số cột hợp lệ.");
+            return;
+          }
+          deleteColumn(colIndex);
+        });
+
+      document
+        .getElementById("deleteTable")
+        .addEventListener("click", function () {
+          deleteTable();
+        });
+
+      // Hàm bật/tắt các nút (khi không có bảng thì disable các nút thao tác)
+      function enableButtons(enable) {
+        document.getElementById("addRow").disabled = !enable;
+        document.getElementById("addColumn").disabled = !enable;
+        document.getElementById("deleteRow").disabled = !enable;
+        document.getElementById("deleteColumn").disabled = !enable;
+        document.getElementById("deleteTable").disabled = !enable;
+      }
+
+      // Tạo bảng 2x2 mới
+      function createTable() {
+        const container = document.getElementById("tableContainer");
+        container.innerHTML = ""; // xoá bảng cũ nếu có
+        const table = document.createElement("table");
+        table.className = "table table-bordered";
+        for (let i = 0; i < 2; i++) {
+          const tr = document.createElement("tr");
+          for (let j = 0; j < 2; j++) {
+            const td = document.createElement("td");
+            td.innerText = `Hàng ${i + 1} - Cột ${j + 1}`;
+            tr.appendChild(td);
+          }
+          table.appendChild(tr);
+        }
+        container.appendChild(table);
+        enableButtons(true);
+      }
+
+      // Thêm 1 hàng vào bảng hiện có
+      function addRow() {
+        const table = document.querySelector("#tableContainer table");
+        if (!table) return;
+        const rowCount = table.rows.length;
+        const colCount = table.rows[0].cells.length;
+        const tr = document.createElement("tr");
+        for (let j = 0; j < colCount; j++) {
+          const td = document.createElement("td");
+          td.innerText = `Hàng ${rowCount + 1} - Cột ${j + 1}`;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+
+      // Thêm 1 cột vào bảng hiện có
+      function addColumn() {
+        const table = document.querySelector("#tableContainer table");
+        if (!table) return;
+        for (let i = 0; i < table.rows.length; i++) {
+          const cell = document.createElement("td");
+          cell.innerText = `Hàng ${i + 1} - Cột ${
+            table.rows[i].cells.length + 1
+          }`;
+          table.rows[i].appendChild(cell);
+        }
+      }
+
+      // Xoá hàng theo chỉ số nhập vào
+      function deleteRow(index) {
+        const table = document.querySelector("#tableContainer table");
+        if (!table) return;
+        if (index < 0 || index >= table.rows.length) {
+          alert("Chỉ số hàng không hợp lệ.");
+          return;
+        }
+        table.deleteRow(index);
+        // Nếu không còn hàng thì disable các nút thao tác
+        if (table.rows.length === 0) {
+          enableButtons(false);
+        }
+      }
+
+      // Xoá cột theo chỉ số nhập vào
+      function deleteColumn(index) {
+        const table = document.querySelector("#tableContainer table");
+        if (!table) return;
+        if (
+          table.rows.length === 0 ||
+          index < 0 ||
+          index >= table.rows[0].cells.length
+        ) {
+          alert("Chỉ số cột không hợp lệ.");
+          return;
+        }
+        // Xoá cột từ mỗi hàng
+        for (let i = 0; i < table.rows.length; i++) {
+          if (index < table.rows[i].cells.length) {
+            table.rows[i].deleteCell(index);
+          }
+        }
+        // Nếu không còn cột thì xoá bảng
+        if (table.rows[0].cells.length === 0) {
+          document.getElementById("tableContainer").innerHTML = "";
+          enableButtons(false);
+        }
+      }
+
+      // Xoá toàn bộ bảng
+      function deleteTable() {
+        const container = document.getElementById("tableContainer");
+        container.innerHTML = "";
+        enableButtons(false);
+      }
+    </script>
+  </body>
+</html>

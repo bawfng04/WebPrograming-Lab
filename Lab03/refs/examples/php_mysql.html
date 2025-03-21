@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+</head>
+
+<body>
+
+<h1>Given a database 'example' (use PHPMyAdmin to create)</h1>
+<pre>CREATE DATABASE `examples`;
+USE `examples`;
+CREATE TABLE `cars` (
+   `id` int UNIQUE NOT NULL,
+   `name` varchar(40),
+   `year` varchar(50),
+   PRIMARY KEY(id)
+);
+INSERT INTO cars VALUES(1,'Mercedes','2000');
+INSERT INTO cars VALUES(2,'BMW','2004');
+INSERT INTO cars VALUES(3,'Audi','2001');</pre>
+
+<h1>How to connect to MySQL database using PHP</h1>
+
+<b>1. Establish a connection to MySQL database using PHP script</b>
+<pre>&lt;?php
+$username = "your_name";
+$password = "your_password";
+$hostname = "localhost"; 
+
+//connection to the database
+$dbhandle = mysqli_connect($hostname, $username, $password)
+  or die("Unable to connect to MySQL");
+echo "Connected to MySQL&lt;br&gt;";
+?&gt;</pre>
+
+<b>2. Select a database to work with</b>
+<pre>&lt;?php
+//select a database to work with
+$selected = mysqli_select_db($dbhandle, "examples")
+  or die("Could not select examples");
+?&gt;</pre>
+
+<b>3. Run Queries and fetch data (SELECT, INSERT, UPDATE, DELETE)</b>
+<pre>&lt;?php
+//execute the SQL query and return records
+$result = mysqli_query("SELECT id, model, year FROM cars");
+//fetch the data from the database
+while ($row = mysqli_fetch_array($result)) {
+   echo "ID:".$row{'id'}." Name:".$row{'model'}."
+   ".$row{'year'}."&lt;br&gt;";
+}
+?&gt;</pre>
+
+<b>4. Close the connection</b>
+<pre>&lt;?php
+//close the connection
+mysqli_close($dbhandle);
+?&gt;</pre>
+</body>
+
+</html>
