@@ -1,0 +1,447 @@
+Khoa Khoa học và Kỹ thuật Máy tính- Đại học Bách Khoa Tp.HCM
+
+
+I.  Mục tiêu
+
+Môn học: Lập trình Web
+LAB 03
+
+PHP & MySQL
+
+•  Hiểu biết ngôn ngữ PHP được dùng để hiện thực ứng dụng Web ở phía Server Side.
+
+•  Sử dụng được các hàm cơ bản có sẵn trong thư viện PHP (sử dụng phiên bản 7.0 trở lên).
+
+•  Hiểu biết về HTML Form và dùng chương trình PHP để nhận và xử lý dữ liệu được gởi từ 
+HTML
+Form.
+
+•  Hiểu biết về hệ quản trị CSDL MySQL và cách sử dụng công cụ PHPMyAdmin (có sẵn trong
+XAMPP).
+
+•  Sử dụng các hàm trong PHP cơ bản dùng để giao tiếp với CSDL MySQL.
+
+•  Hiểu biết về kỹ thuật AJAX và cách sử dụng kỹ thuật AJAX để yêu cầu dữ liệu từ Server.
+
+•  Hiểu biết thư viện jQuery (thư viện Javascript): cấu trúc, các phương thức cơ bản, sự 
+kiện,...
+
+•  Hiện thực AJAX sử dụng thư viện jQuery.
+
+II.  Các bước thực hiện
+
+Chú ý: các file liên quan đến bài Lab và tài liệu tham khảo được đặt trong thư mục
+
+“refs”
+
+A. Phần 1
+
+1.  Tìm hiểu ngôn ngữ PHP
+
+o PHP (Hypertext Preprocessor) là một ngôn ngữ lập trình kịch bản mã nguồn mở
+phổ                                           biến, thường được dùng để hiện thực ứng dụng Web ở 
+phía Server Side.
+
+o Sinh viên xem lại cách viết một chương trình bằng ngôn ngữ PHP (khai báo
+biến, hàm, cách sử dụng các cấu trúc cơ bản,…) tại trang web:
+http://www.w3schools.com/php
+
+2.  Các hàm PHP thông dụng
+
+o Bước 1: Copy thư mục PHP_examples trong thư mục bài Lab 3 vào thư mục
+Web                                         Root (xem lại cách thức cài đặt Webserver ở bài Lab 1).
+
+o Bước 2: Mở trình duyệt Web, nhập đường dẫn thực thi file index.php trong thư
+mục PHP_examples.
+
+Ví dụ: http://localhost/PHP_examples/index.php
+
+o Bước 3: Xem thông tin và chạy thử các hàm thông dụng trong ngôn ngữ PHP
+được liệt kê ở menu bên trái.
+
+o Tham khảo: PHP-Cheat-Sheet.pdf
+
+3.  PHP & HTML Form
+
+o Bước 1: Copy thư mục Forms_Example trong thư mục bài Lab 3 vào thư mục
+Web                                         Root.
+
+o Bước 2: Mở trình duyệt Web, nhập đường dẫn để gọi thực thi các file:
+form_get.php, form_post.php, form_upload.php
+
+o Bước 3: Nhập dữ liệu để chạy chương trình, xem mã nguồn các file trên để tìm
+hiểu cách thức dùng chương trình PHP để nhận và xử lý dữ liệu từ HTML
+Form.
+
+Trang 1/8
+
+
+Khoa Khoa học và Kỹ thuật Máy tính- Đại học Bách Khoa Tp.HCM
+
+� Bài tập phần 1
+
+Bài 1. (thư mục phan1_bai1) In các biểu thức và giá trị của biểu thức ra màn hình
+trình                                            duyệt dựa vào các biến đã được khai báo sẵn trong 
+chương trình. Cụ thể, trong
+mã nguồn của chương trình, tạo các biến như sau (chỉ sử dụng số trong khai báo
+biến, không dùng trong các lệnh echo):
+
+$x=10;
+
+$y=7;
+
+Kết quả xuất ra màn hình trình duyệt sẽ là:
+10 + 7 = 17
+
+10 - 7 = 3
+
+10 * 7 = 70
+
+10 / 7 = 1.4285714285714
+
+10 % 7 = 3
+
+Bài 2. (thư mục phan1_bai2) Dùng ngôn ngữ PHP, tạo 1 hàm với đầu vào là một
+số                                           nguyên dương, xuất ra thông điệp khác nhau cho mỗi 
+trường hợp dựa trên phần
+dư của số nguyên đó khi chia cho 5, dùng cấu trích switch. Cụ thể:
+
+− Phần dư bằng 0, xuất thông điệp: “Hello”
+
+− Phần dư bằng 1, xuất thông điệp: “How are you?”
+
+−  Phần dư bằng 2, xuất thông điệp: “I’m doing well, thank you”
+
+− Phần dư bằng 3, xuất thông điệp: “See you later”
+
+− Phần dư bằng 4, xuất thông điệp: “Good-bye”
+
+Bài 3. (thư mục phan1_bai3) Viết chương trình PHP xuất ra màn hình tất cả các
+số                                             lẻ trong khoảng từ 0 đến 100.
+
+a. Dùng vòng lặp for
+
+b. Dùng vòng lặp while
+
+Bài 4. (thư mục phan1_bai4) Dùng 2 vòng lặp lồng nhau để xuất ra màn hình một
+bảng (table) như bên dưới
+
+
+1  2
+
+2  4
+
+3  6
+
+4  8
+
+5  10
+
+6  12
+
+7  14
+
+3  4
+
+6  8
+
+9  12
+
+12 16
+
+15 20
+
+18 24
+
+21 28
+
+5  6  7
+
+10 12 14
+
+15 18 21
+
+20 24 28
+
+25 30 35
+
+30 36 42
+
+35 42 49
+
+Bài 5. (thư mục phan1_bai5) Dựa trên chương trình đã hiện thực ở bài Lab 02: Hiện
+thực một máy tính cơ bản sử dụng HTML Form và PHP, hỗ trợ các phép tính cơ
+bản (cộng, trừ, nhân, chia, luỹ thừa, nghịch đảo), các giá trị được người dùng nhập
+vào thông qua HMTL Form.
+
+Trang 2/8
+
+
+Khoa Khoa học và Kỹ thuật Máy tính- Đại học Bách Khoa Tp.HCM
+
+Bài 6. (thư mục phan1_bai6) Dựa trên chương trình đã hiện thực ở bài Lab 02: Hiện
+thực một Form đăng kí thành viên đơn giản, yêu cầu những thông tin dưới đây từ
+người sử dụng:
+
+− First name (chuỗi từ 2-30 kí tự).
+
+− Last name (chuỗi từ 2-30 kí tự).
+
+− Email (theo định dạng email: <sth>@<sth>.<sth>).
+
+−  Password (chuỗi từ 2-30 kí tự, dùng phần tử password trong HTML Form).
+
+− Birthday (ngày, tháng, năm. Dùng phần tử select).
+
+− Gender (nam, nữ, không xác định. Dùng phần tử radio).
+
+−  Country (dùng phần tử select, có một số lựa chọn: Vietnam, Australia, United
+States,                                         India, Other).
+
+− About (phần tử textarea, giới hạn 10000 kí tự).
+
+− Nút Submit và Reset.
+
+Yêu cầu:
+
+o Tất cả các dữ liệu nhập từ người dùng đều phải được kiểm tra sử dụng
+ngôn                                      ngữ PHP theo yêu cầu cho mỗi trường liệt kê ở trên.
+
+o Hiển thị thông báo lỗi trong trường hợp người dùng nhập dữ liệu không
+đúng                                      quy định.
+
+o Hiển thị thông điệp “Complete!” trong trường hợp tất cả dữ liệu người
+dùng                                     nhập đều đúng quy định.
+
+B. Phần 2
+
+1.  Tìm hiểu công cụ PHPMyAdmin
+
+o phpMyAdmin là một công cụ nguồn mở miễn phí được viết bằng PHP dự định để
+xử lý quản trị của MySQL thông qua một trình duyệt web. Nó có thể thực hiện
+nhiều tác vụ như tạo, sửa đổi hoặc xóa bỏ cơ sở dữ liệu, bảng, các trường hoặc bản
+ghi;                                          thực hiện báo cáo SQL, quản lý người dùng và cấp 
+phép. (wikipedia.org).
+
+o Trong trường hợp cài đặt web server sử dụng XAMPP, để mở công cụ
+PHPMyAdmin, chúng ta có thể mở trình duyệt web và nhập vào địa chỉ URL:
+http://localhost/phpmyadmin
+
+o Tham khảo cách sử dụng công cụ PHPMyAdmin và một số truy vấn SQL cơ bản
+ở                                            file đính kèm: Intro_to_MySQL_PHPMyAdmin.pdf
+
+o Các câu truy vấn SQL cơ bản tham khảo ở W3Schools
+https://www.w3schools.com/sql/
+
+Trang 3/8
+
+
+Khoa Khoa học và Kỹ thuật Máy tính- Đại học Bách Khoa Tp.HCM
+
+2.  Các hàm PHP cơ bản giao tiếp với CSDL MySQL
+
+o Kể từ phiên bản PHP5 trở đi chúng ta có thể kết nối với MySQL bằng cách sử
+dụng                                          một trong hai thư viện chính đó là:
+
+▪  MySQLi (i là chữ viết tắt của Improved)
+
+▪  PDO (PHP Data Objects)
+
+o Tham khảo cách truy vấn dữ liệu từ CSDL MySQL bằng 2 thư viện MySQLi và
+PDO và các ví dụ ở địa chỉ:
+http://www.w3schools.com/php/php_mysql_connect.asp
+
+3.  Tìm hiểu kỹ thuật AJAX
+
+o AJAX (tiếng Anh: "Asynchronous JavaScript and XML" - nghĩa là "JavaScript và
+XML không đồng bộ") là công nghệ phát triển web được sử dụng để tạo các ứng
+dụng web động. AJAX cho phép các trang web được cập nhật một cách không
+đồng bộ bằng cách trao đổi các lượng dữ liệu nhỏ với Server. Tức là AJAX giúp
+cập nhật các phần nhỏ trong trang web mà không cần tải lại toàn bộ trang web.
+
+o Cách hiện thực AJAX bằng ngôn ngữ Javascript: xem mã nguồn tham khảo ở file
+
+ajax_general.php
+
+4.  Tìm hiểu thư viện jQuery
+
+o jQuery là một thư viện kiểu mới của JavaScript, được tạo bởi John Resig vào
+năm                                         2006 với một phương châm tuyệt vời: Write less, do more 
+- Viết ít hơn,
+làm nhiều hơn.
+
+o jQuery làm đơn giản hóa việc truyền tải HTML, xử lý sự kiện, tạo hiệu ứng
+động                                         và tương tác Ajax.
+
+o jQuery là một bộ công cụ tiện ích JavaScript làm đơn giản hóa các tác vụ đa
+dạng                                           với việc viết ít code hơn. một số tính năng tối quan 
+trọng được hỗ trợ bởi
+jQuery:
+
+▪  Thao tác DOM
+
+▪  Xử lý sự kiện
+
+▪  Hỗ trợ AJAX
+
+▪ Hiệu ứng
+
+Trang 4/8
+
+
+Khoa Khoa học và Kỹ thuật Máy tính- Đại học Bách Khoa Tp.HCM
+
+▪ Gọn nhẹ
+
+▪  Được hỗ trợ hầu hết bởi các trình duyệt hiện đại − jQuery được hỗ trợ
+hầu hết bởi các trình duyệt hiện đại, và làm việc tốt trên IE 6.0+, FF
+2.0+, Safari 3.0+, Chrome và Opera 9.0+
+
+▪  jQuery hỗ trợ CSS3 Selector và cú pháp XPath cơ bản.
+
+o Tìm hiểu cách sử dụng thư viện jQuery cơ bản ở link:
+http://api.jquery.com/
+
+5.  Hiện thực AJAX sử dụng thư viện jQuery
+
+o Tham khảo mã nguồn hiện thực AJAX dùng thư viện jQuery ở file:
+
+ajax_jquery.php
+
+o Tham khảo cách sử dụng AJAX bằng thư viện jQuery:
+
+▪   $.ajax(): Perform an asynchronous HTTP (Ajax) request.
+https://api.jquery.com/jquery.ajax/
+
+▪   $.load() : Load HTML From a Remote URL and Inject it into the
+DOM
+
+http://api.jquery.com/load/
+
+▪   $.getJSON(): Retrieve JSON from a Remote Location
+http://api.jquery.com/jQuery.getJSON/
+
+▪   $.getScript(): Load JavaScript from a Remote Location, then
+execute it.
+
+http://api.jquery.com/jQuery.getScript/
+
+▪   $.get(): Make GET Requests
+http://api.jquery.com/jQuery.get/
+
+▪   $.post(): Make POST Requests
+http://api.jquery.com/jQuery.post/
+
+Trang 5/8
+
+
+Khoa Khoa học và Kỹ thuật Máy tính- Đại học Bách Khoa Tp.HCM
+
+� Bài tập phần 2
+
+Bài 1. (thư mục phan2_bai1) Cho một CSDL MySQL đã được export trong file
+shop.sql (trong thư mục refs của bài Lab), dùng công cụ PHPMyAdmin để import
+CSDL này vào hệ quản trị CSDL MySQL trên máy thực hành. Sinh viên cần chụp
+ảnh màn hình các bước thực hiện và cho vào trong file Word (bai1.docx) để nộp.
+
+Các bước thực hiện:
+
+•  Bước 1: Import file shop.sql vào hệ quản trị CSDL MySQL sử dụng công cụ
+PHPMyAdmin (Tab Import)
+
+•  Bước 2: Thiết lập field id của bảng products thành AUTO_INCREMENT
+(tự                                       động tăng), khi chúng ta chèn một hàng mới vào bên trong 
+bảng thì field
+này sẽ tự động được gán giá trị (giá trị sẽ tự động tăng thêm một sau mỗi
+hàng được chèn vào bảng): chọn bảng products, vào Tab Structure, sau đó
+chọn cột cần chỉnh sửa.
+
+Bài 2. (thư mục phan2_bai2) Viết chương trình sử dụng ngôn ngữ PHP và các thư
+viện giao tiếp SQL (mysqli hoặc PDO) để hiện thực các yêu cầu sau đây:
+
+Trang 6/8
+
+
+Khoa Khoa học và Kỹ thuật Máy tính- Đại học Bách Khoa Tp.HCM
+
+-  Sử dụng lại giao diện trang web đã thiết kế ở bài 1 và bài 2 (phần 1), đã thiết kế
+trong bài Lab 02
+
+-  Viết chương trình PHP kết nối với CSDL MySQL đã import ở bài 1 để lấy
+thông tin sản phẩm và hiển thị lên giao diện, bao gồm:
+
+o Trang hiển thị danh sách sản phẩm (list.php), sử dụng giao diện bài 1đã
+thiết kế trong Lab 02)
+
+o Trang hiển thị thông tin chi tiết sản phẩm (detail.php), khi người dùng
+nhấn chuột vào sản phẩm tương ứng ở trang danh sách (sử dụng giao
+diện bài 2 đã thiết kế trong Lab 02)
+
+Bài 3. (thư mục phan2_bai3) Viết chương trình sử dụng HTML Form, ngôn ngữ
+PHP                                             và các thư viện giao tiếp SQL (mysqli hoặc PDO) để 
+hiện thực các tính năng
+sau đây:
+
+a. (a.php) Tính năng liệt kê tất cả các dữ liệu có trong bảng products (hiển thị
+trong một bảng, HTML table). Tính năng tìm kiếm theo trường Title và
+Description bằng từ khoá, phân trang cho bảng dữ liệu.
+
+b. (b.php) Tính năng thêm một record dữ liệu mới vào bảng products (dữ liệu
+được người dùng nhập vào từ form, các dữ liệu phải được kiểm tra theo đúng
+yêu cầu bằng ngôn ngữ PHP).
+
+c. (c.php) Tính năng chỉnh sửa một record dữ liệu trong bảng products.
+
+d. (d.php) Tính năng xoá một record dữ liệu khỏi bảng products.
+
+Ghi chú kiểm tra dữ liệu đầu vào:
+
+⮚ id : số nguyên.
+
+⮚ name : kiểu chuỗi, độ dài từ 5 đến 40 kí tự.
+
+⮚ description : kiểu chuỗi, độ dài tối đa 5000 kí tự.
+
+⮚ price: kiểu số thực
+
+⮚ image: kiểu chuỗi, độ dài tối đa 255 kí tự.
+
+⮚ Gợi ý giao diện:
+
+Trang 7/8
+
+
+Khoa Khoa học và Kỹ thuật Máy tính- Đại học Bách Khoa Tp.HCM
+
+Bài 4. (thư mục phan2_bai4) Chỉnh sửa lại các tính năng đã hiện thực ở bài 2 sử
+dụng công nghệ AJAX (có thể ứng dụng thư viện jQuery đã được giới thiệu), tên các
+file mã nguồn đặt tương tự bài 2.
+
+III. Cách thức nộp bài
+
+•  Bài Lab 03 bao gồm 2 phần:
+
+o Phần làm và nộp tại lớp (bài 1,2,3,4 của phần 1): sinh viên làm và nộp tại lớp
+tại                                          mục “Bài nộp tại lớp (Lab 02)”, tạo thư mục MSSV chứa 
+các thư mục bài làm
+(phan1_bai1, phan1_bai2, phan1_bai3, phan1_bai4), sau đó nén thư mục trên vào
+một file zip (<mssv>.zip) và nộp.
+
+o Phần bài nộp sau: sinh viên tạo thư mục MSSV chứa các thư mục bài làm của
+các phần còn lại, sau đó nén thư mục trên vào một file zip (<mssv>.zip) và nộp ở
+Bkel: http://e-learning.hcmut.edu.vn trong trang của môn học tương ứng.
+
+•  Các bài nộp sai quy định sẽ không được tính điểm.
+
+•  Các bài làm giống nhau sẽ bị xem là gian lận và bị 0 điểm,
+
+•  Sinh viên theo dõi deadline nộp bài lab và nộp bài đúng hạn để được tính điểm, mọi
+trường hợp nộp bài trễ hạn sẽ không được giải quyết.
+
+•  Chỉ nhận bài nộp thông qua BKel, không nhận bài nộp qua email hay các hình
+thức khác.
+
+--HẾT--
+
+Trang 8/8
+
