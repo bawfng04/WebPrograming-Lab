@@ -1,17 +1,14 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "shop";
 
-// Initialize variables
 $id = $name = $description = $price = $image = "";
 $errors = [];
 $success = false;
 $notFound = false;
 
-// Check if ID is provided
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = $_GET['id'];
 } elseif (isset($_POST['id']) && is_numeric($_POST['id'])) {
@@ -22,11 +19,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 }
 
 try {
-    // Create connection
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Process form submission
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Validate name
         if (empty($_POST["name"])) {
@@ -38,7 +33,6 @@ try {
             }
         }
 
-        // Validate description
         if (empty($_POST["description"])) {
             $errors[] = "Description is required";
         } else {
@@ -48,7 +42,6 @@ try {
             }
         }
 
-        // Validate price
         if (empty($_POST["price"])) {
             $errors[] = "Price is required";
         } else {
@@ -58,7 +51,6 @@ try {
             }
         }
 
-        // Validate image URL
         if (empty($_POST["image"])) {
             $errors[] = "Image URL is required";
         } else {
@@ -68,20 +60,16 @@ try {
             }
         }
 
-        // If no errors, update the database
         if (empty($errors)) {
             try {
-                // Prepare SQL statement
                 $stmt = $conn->prepare("UPDATE products SET name = :name, description = :description, price = :price, image = :image WHERE id = :id");
 
-                // Bind parameters
                 $stmt->bindParam(':id', $id);
                 $stmt->bindParam(':name', $name);
                 $stmt->bindParam(':description', $description);
                 $stmt->bindParam(':price', $price);
                 $stmt->bindParam(':image', $image);
 
-                // Execute the query
                 $stmt->execute();
 
                 $success = true;
@@ -91,7 +79,6 @@ try {
             }
         }
     } else {
-        // Fetch existing product data
         $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();

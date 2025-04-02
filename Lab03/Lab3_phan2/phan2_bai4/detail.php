@@ -1,5 +1,4 @@
 <?php
-// Check if product ID is provided
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: list.php");
     exit;
@@ -7,28 +6,22 @@ if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $productId = $_GET['id'];
 
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "shop";
 
 try {
-    // Create connection using PDO
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-    // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Query to get the specific product
     $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
     $stmt->bindParam(':id', $productId);
     $stmt->execute();
 
-    // Get product data
     $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // If product doesn't exist, redirect to list page
     if(!$product) {
         header("Location: list.php");
         exit;
@@ -207,7 +200,7 @@ try {
 
     <script>
       $(document).ready(function() {
-        // Load related products via AJAX
+        // AJAX
         $.ajax({
           url: 'get_related_products.php',
           type: 'GET',
@@ -218,7 +211,6 @@ try {
           success: function(data) {
             let html = '';
             if(data.length > 0) {
-              // Generate HTML for each related product
               data.forEach(function(product) {
                 html += `
                   <div class="related-product">
@@ -234,7 +226,6 @@ try {
               html = '<p>No related products found.</p>';
             }
 
-            // Update the related products container
             $('#relatedProducts').html(html);
           },
           error: function(xhr, status, error) {
@@ -243,13 +234,11 @@ try {
           }
         });
 
-        // Thumbnail click event to change main image
         $('.thumbnail').click(function() {
           const imageUrl = $(this).data('image');
           $('#mainProductImage').attr('src', imageUrl);
         });
 
-        // Header search functionality
         $('#headerSearch').keypress(function(e) {
           if(e.which == 13) {
             const searchTerm = $(this).val();
@@ -259,12 +248,10 @@ try {
           }
         });
 
-        // Add to cart button with animation
         $('#addToCartBtn').click(function() {
           const productId = $(this).data('id');
           const quantity = $('#quantity').val();
 
-          // Add animation
           $(this).text('Added!');
           $(this).css('background-color', '#2ecc71');
 
@@ -273,7 +260,6 @@ try {
             $(this).css('background-color', '');
           }, 1500);
 
-          // Here you would normally send an AJAX request to add to cart
           console.log(`Added product ${productId} to cart, quantity: ${quantity}`);
         });
       });

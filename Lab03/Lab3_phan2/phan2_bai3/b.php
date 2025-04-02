@@ -1,18 +1,14 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "shop";
 
-// Initialize variables
 $name = $description = $price = $image = "";
 $errors = [];
 $success = false;
 
-// Process form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate name
     if (empty($_POST["name"])) {
         $errors[] = "Name is required";
     } else {
@@ -22,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Validate description
     if (empty($_POST["description"])) {
         $errors[] = "Description is required";
     } else {
@@ -32,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Validate price
     if (empty($_POST["price"])) {
         $errors[] = "Price is required";
     } else {
@@ -42,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Validate image URL
     if (empty($_POST["image"])) {
         $errors[] = "Image URL is required";
     } else {
@@ -52,23 +45,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // If no errors, insert into database
     if (empty($errors)) {
         try {
-            // Create connection
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Prepare SQL statement
             $stmt = $conn->prepare("INSERT INTO products (name, description, price, image) VALUES (:name, :description, :price, :image)");
 
-            // Bind parameters
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':description', $description);
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':image', $image);
 
-            // Execute the query
             $stmt->execute();
 
             $success = true;

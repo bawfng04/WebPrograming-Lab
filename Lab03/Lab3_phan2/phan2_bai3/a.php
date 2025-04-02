@@ -5,28 +5,22 @@ $username = "root";
 $password = "";
 $dbname = "shop";
 
-// Initialize search variables
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $whereClause = '';
 
-// Add WHERE clause if search is provided
 if(!empty($search)) {
     $whereClause = "WHERE name LIKE :search OR description LIKE :search";
 }
 
-// Pagination settings
 $recordsPerPage = 5;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($page - 1) * $recordsPerPage;
 
 try {
-    // Create connection using PDO
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-    // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Count total records for pagination
     $countSql = "SELECT COUNT(*) FROM products $whereClause";
     $countStmt = $conn->prepare($countSql);
 
@@ -39,11 +33,9 @@ try {
     $totalRecords = $countStmt->fetchColumn();
     $totalPages = ceil($totalRecords / $recordsPerPage);
 
-    // Get paginated product records
     $sql = "SELECT * FROM products $whereClause LIMIT :offset, :limit";
     $stmt = $conn->prepare($sql);
 
-    // Bind parameters
     if(!empty($search)) {
         $searchParam = "%$search%";
         $stmt->bindParam(':search', $searchParam);
@@ -80,7 +72,6 @@ try {
     <div class="container">
         <h1 class="mb-4">Product List</h1>
 
-        <!-- Search Form -->
         <form class="row g-3 mb-4" method="GET" action="">
             <div class="col-md-6">
                 <div class="input-group">
@@ -93,12 +84,10 @@ try {
             </div>
         </form>
 
-        <!-- Actions -->
         <div class="mb-3">
             <a href="b.php" class="btn btn-success">Add New Product</a>
         </div>
 
-        <!-- Products Table -->
         <table class="table table-striped table-bordered">
             <thead class="table-dark">
                 <tr>
@@ -140,7 +129,6 @@ try {
             </tbody>
         </table>
 
-        <!-- Pagination -->
         <?php if($totalPages > 1): ?>
             <nav aria-label="Page navigation">
                 <ul class="pagination">

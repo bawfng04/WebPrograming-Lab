@@ -1,18 +1,15 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "shop";
 
-// Initialize variables
 $id = $name = $description = $price = $image = "";
 $errors = [];
 $success = false;
 $notFound = false;
 $confirmed = false;
 
-// Check if ID is provided
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = $_GET['id'];
 } elseif (isset($_POST['id']) && is_numeric($_POST['id'])) {
@@ -24,20 +21,15 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 }
 
 try {
-    // Create connection
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Process deletion if confirmed
     if ($confirmed) {
         try {
-            // Prepare SQL statement
             $stmt = $conn->prepare("DELETE FROM products WHERE id = :id");
 
-            // Bind parameters
             $stmt->bindParam(':id', $id);
 
-            // Execute the query
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
@@ -50,7 +42,6 @@ try {
             $errors[] = "Database error: " . $e->getMessage();
         }
     } else {
-        // Fetch product data to confirm deletion
         $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();

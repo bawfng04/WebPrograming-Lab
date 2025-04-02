@@ -1,16 +1,13 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "shop";
 
-// Initialize variables
 $id = "";
 $errors = [];
 $notFound = false;
 
-// Check if ID is provided
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = $_GET['id'];
 } else {
@@ -19,11 +16,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 }
 
 try {
-    // Create connection
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Fetch product data
     $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
     $stmt->bindParam(':id', $id);
     $stmt->execute();

@@ -1078,8 +1078,6 @@ nav.mobile-active ul {
     width: 80px;
     height: 80px;
   }
-
-
 }
 
 /* responsive cho dt */
@@ -1196,7 +1194,7 @@ nav.mobile-active ul {
     background-color: transparent;
   }
 
-  .f-main-nav a{
+  .f-main-nav a {
     font-size: 14px;
   }
 
@@ -1221,7 +1219,7 @@ nav.mobile-active ul {
     gap: 30px;
   }
 
-  .b-article-title{
+  .b-article-title {
     font-size: 25px;
   }
 
@@ -1341,14 +1339,12 @@ nav.mobile-active ul {
   }
 }
 
-
-
-.bknab{
+.bknab {
   display: flex;
   justify-content: space-between;
 }
 
-.readmore{
+.readmore {
   background-color: black;
   color: white;
   padding: 10px 20px;
@@ -1357,8 +1353,6 @@ nav.mobile-active ul {
   font-size: 15px;
   border: none;
 }
-
-
 
 .h-sidebar {
   width: 280px;

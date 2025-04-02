@@ -1,5 +1,4 @@
 <?php
-// Check if product ID is provided
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: list.php");
     exit;
@@ -7,28 +6,22 @@ if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $productId = $_GET['id'];
 
-// Database connection
 $servername = "localhost";
-$username = "root"; // Default XAMPP username
-$password = ""; // Default XAMPP password
+$username = "root";
+$password = "";
 $dbname = "shop";
 
 try {
-    // Create connection using PDO
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-    // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Query to get the specific product
     $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
     $stmt->bindParam(':id', $productId);
     $stmt->execute();
 
-    // Get product data
     $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // If product doesn't exist, redirect to list page
     if(!$product) {
         header("Location: list.php");
         exit;

@@ -1,22 +1,17 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "shop";
 
 try {
-    // Create connection using PDO
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-    // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Query to get all products
     $stmt = $conn->prepare("SELECT * FROM products");
     $stmt->execute();
 
-    // Set the resulting array to associative
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();

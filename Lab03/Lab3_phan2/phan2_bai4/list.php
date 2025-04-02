@@ -1,33 +1,25 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "shop";
 
-// Initialize search variables
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $whereClause = '';
 
-// Check if this is an AJAX request
 $isAjax = isset($_GET['ajax']) && $_GET['ajax'] == 1;
 
-// Add WHERE clause if search is provided
 if(!empty($search)) {
     $whereClause = "WHERE name LIKE :search OR description LIKE :search";
 }
 
 try {
-    // Create connection using PDO
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-    // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Query to get all products
     $stmt = $conn->prepare("SELECT * FROM products $whereClause");
 
-    // Bind parameters if searching
     if(!empty($search)) {
         $searchParam = "%$search%";
         $stmt->bindParam(':search', $searchParam);
@@ -35,10 +27,8 @@ try {
 
     $stmt->execute();
 
-    // Set the resulting array to associative
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // If this is an AJAX request, return JSON
     if($isAjax) {
         header('Content-Type: application/json');
         echo json_encode($products);
@@ -275,7 +265,6 @@ try {
          <div class="right-column">
             <h2 class="section-title">Popular Products:</h2>
             <?php
-            // Get the first two products as popular items
             $popularCount = min(count($products), 2);
             for($i = 0; $i < $popularCount; $i++):
                $product = $products[$i];
@@ -296,12 +285,10 @@ try {
          <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div id="modalContent">
-               <!-- Content will be loaded here via AJAX -->
             </div>
          </div>
       </div>
 
-      <!-- Footer and remaining content -->
       <div class="flex-a">
       <div class="f-footer">
       <div class="f-header">
@@ -395,25 +382,22 @@ try {
                 }
             });
 
-            // Quick view modal functionality
             $('.view-modal').click(function() {
                 const productId = $(this).data('id');
                 loadProductDetails(productId);
             });
 
-            // Close modal
             $('.close-modal').click(function() {
                 $('#productModal').hide();
             });
 
-            // Close modal when clicking outside of it
             $(window).click(function(e) {
                 if($(e.target).is('#productModal')) {
                     $('#productModal').hide();
                 }
             });
 
-            // Function to search products via AJAX
+            // AJAX
             function searchProducts(searchTerm) {
                 $.ajax({
                     url: 'list.php',
@@ -433,7 +417,6 @@ try {
                 });
             }
 
-            // Function to load product details for modal
             function loadProductDetails(productId) {
                 $.ajax({
                     url: 'get_product.php',
@@ -448,7 +431,6 @@ try {
                             return;
                         }
 
-                        // Build the modal content
                         let modalHTML = `
                             <div class="modal-product-info">
                                 <img src="${data.image}" alt="${data.name}" class="modal-image">
@@ -469,7 +451,6 @@ try {
                 });
             }
 
-            // Function to update product grid after search
             function updateProductGrid(products) {
                 let gridHTML = '';
 
@@ -493,7 +474,6 @@ try {
 
                 $('#productGrid').html(gridHTML);
 
-                // Reattach event handlers to new buttons
                 $('.view-modal').click(function() {
                     const productId = $(this).data('id');
                     loadProductDetails(productId);
