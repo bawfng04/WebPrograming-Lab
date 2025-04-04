@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý LocalStorage & IndexedDB</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 15px;
+      }
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        margin-bottom: 15px;
+      }
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+      }
+      .tab button:hover {
+        background-color: #ddd;
+      }
+      .tab button.active {
+        background-color: #ccc;
+      }
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+      }
+      .itemList ul {
+        list-style: none;
+        padding: 0;
+      }
+      .itemList li {
+        margin-bottom: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .itemList button {
+        margin-left: 10px;
+        padding: 3px 8px;
+        cursor: pointer;
+      }
+      form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      form input[type="text"] {
+        width: 250px;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+      form button {
+        padding: 8px 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Quản lý LocalStorage & IndexedDB</h1>
+
+    <div class="tab">
+      <button
+        class="tablinks"
+        onclick="openStorage(event, 'localStorage')"
+        id="defaultOpen"
+        >LocalStorage</button
+      >
+      <button class="tablinks" onclick="openStorage(event, 'indexedDB')"
+        >IndexedDB</button
+      >
+    </div>
+
+    <!-- LocalStorage -->
+    <div id="localStorage" class="tabcontent">
+      <h2>Dữ liệu LocalStorage</h2>
+      <div id="localStorageList" class="itemList"><p>Đang tải...</p></div>
+
+      <hr />
+
+      <h2>Thêm / Sửa LocalStorage</h2>
+      <form id="localStorageForm">
+        <div>
+          <label for="localStorageKey">Tên khóa:</label>
+          <input type="text" id="localStorageKey" required />
+        </div>
+        <div>
+          <label for="localStorageValue">Giá trị:</label>
+          <input type="text" id="localStorageValue" required />
+        </div>
+        <button type="submit">Thêm / Sửa</button>
+      </form>
+    </div>
+
+    <!-- IndexedDB -->
+    <div id="indexedDB" class="tabcontent">
+      <h2>Dữ liệu IndexedDB</h2>
+      <div id="indexedDBList" class="itemList"><p>Đang tải...</p></div>
+
+      <hr />
+
+      <h2>Thêm / Sửa IndexedDB</h2>
+      <form id="indexedDBForm">
+        <div>
+          <label for="indexedDBKey">ID:</label>
+          <input
+            type="text"
+            id="indexedDBKey"
+            placeholder="Để trống để tạo ID tự động"
+          />
+        </div>
+        <div>
+          <label for="indexedDBName">Tên:</label>
+          <input type="text" id="indexedDBName" required />
+        </div>
+        <div>
+          <label for="indexedDBValue">Giá trị:</label>
+          <input type="text" id="indexedDBValue" required />
+        </div>
+        <button type="submit">Thêm / Sửa</button>
+      </form>
+    </div>
+
+    <script>
+      // tab
+      function openStorage(evt, storageName) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(storageName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Mở tab mặc định
+      document.getElementById("defaultOpen").click();
+
+      const localStorageListDiv = document.getElementById("localStorageList");
+      const localStorageForm = document.getElementById("localStorageForm");
+      const localStorageKeyInput = document.getElementById("localStorageKey");
+      const localStorageValueInput =
+        document.getElementById("localStorageValue");
+
+      // Hiển thị danh sách Local Storage
+      function displayLocalStorage() {
+        localStorageListDiv.innerHTML = "";
+        const ul = document.createElement("ul");
+
+        if (localStorage.length === 0) {
+          localStorageListDiv.innerHTML =
+            "<p>Không có dữ liệu nào trong LocalStorage.</p>";
+          return;
+        }
+
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          const value = localStorage.getItem(key);
+
+          const li = document.createElement("li");
+
+          // Hiển thị key và value
+          const textSpan = document.createElement("span");
+          textSpan.textContent = `${key} = ${value}`;
+          li.appendChild(textSpan);
+
+          // Nút
+          const buttonDiv = document.createElement("div");
+
+          // Nút Edit
+          const editButton = document.createElement("button");
+          editButton.textContent = "Sửa";
+          editButton.onclick = () => {
+            localStorageKeyInput.value = key; // load tên khóa vào input
+            localStorageValueInput.value = value;
+            localStorageKeyInput.focus();
+          };
+          buttonDiv.appendChild(editButton);
+
+          // Nút Delete
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Xoá";
+          deleteButton.onclick = () => {
+            localStorage.removeItem(key);
+            displayLocalStorage();
+          };
+          buttonDiv.appendChild(deleteButton);
+
+          li.appendChild(buttonDiv);
+          ul.appendChild(li);
+        }
+
+        localStorageListDiv.appendChild(ul);
+      }
+
+      // Thêm / Sửa Local Storage
+      function addLocalStorage(event) {
+        event.preventDefault();
+
+        const key = localStorageKeyInput.value.trim();
+        const value = localStorageValueInput.value.trim();
+
+        if (!key || !value) {
+          alert("Tên khóa và Giá trị không được để trống!");
+          return;
+        }
+
+        localStorage.setItem(key, value);
+
+        localStorageForm.reset();
+        displayLocalStorage();
+      }
+
+      localStorageForm.addEventListener("submit", addLocalStorage);
+
+      const indexedDBListDiv = document.getElementById("indexedDBList");
+      const indexedDBForm = document.getElementById("indexedDBForm");
+      const indexedDBKeyInput = document.getElementById("indexedDBKey");
+      const indexedDBNameInput = document.getElementById("indexedDBName");
+      const indexedDBValueInput = document.getElementById("indexedDBValue");
+
+      // Khởi tạo IndexedDB
+      let db;
+      const dbName = "DataStorage";
+      const dbVersion = 1;
+      const dbStoreName = "items";
+
+      const request = indexedDB.open(dbName, dbVersion);
+
+      request.onerror = function (event) {
+        console.error("Database error: " + event.target.errorCode);
+      };
+
+      request.onupgradeneeded = function (event) {
+        db = event.target.result;
+
+        // Tạo object store. Sử dụng "id" làm key path
+        if (!db.objectStoreNames.contains(dbStoreName)) {
+          const objectStore = db.createObjectStore(dbStoreName, {
+            keyPath: "id",
+            autoIncrement: true,
+          });
+
+          // Tạo index cho name
+          objectStore.createIndex("name", "name", { unique: false });
+        }
+      };
+
+      request.onsuccess = function (event) {
+        db = event.target.result;
+        displayIndexedDB();
+      };
+
+      // Hiển thị danh sách IndexedDB
+      function displayIndexedDB() {
+        if (!db) {
+          indexedDBListDiv.innerHTML = "<p>Đang kết nối tới IndexedDB...</p>";
+          return;
+        }
+
+        indexedDBListDiv.innerHTML = "";
+        const ul = document.createElement("ul");
+
+        const transaction = db.transaction([dbStoreName], "readonly");
+        const objectStore = transaction.objectStore(dbStoreName);
+        const request = objectStore.getAll();
+
+        request.onerror = function (event) {
+          console.error("Error fetching data: " + event.target.errorCode);
+          indexedDBListDiv.innerHTML =
+            "<p>Lỗi khi tải dữ liệu từ IndexedDB.</p>";
+        };
+
+        request.onsuccess = function (event) {
+          const items = event.target.result;
+
+          if (items.length === 0) {
+            indexedDBListDiv.innerHTML =
+              "<p>Không có dữ liệu nào trong IndexedDB.</p>";
+            return;
+          }
+
+          items.forEach((item) => {
+            const li = document.createElement("li");
+
+            // Hiển thị ID, name và value
+            const textSpan = document.createElement("span");
+            textSpan.textContent = `ID: ${item.id}, Tên: ${item.name}, Giá trị: ${item.value}`;
+            li.appendChild(textSpan);
+
+            // Nút
+            const buttonDiv = document.createElement("div");
+
+            // Nút Edit
+            const editButton = document.createElement("button");
+            editButton.textContent = "Sửa";
+            editButton.onclick = () => {
+              indexedDBKeyInput.value = item.id;
+              indexedDBNameInput.value = item.name;
+              indexedDBValueInput.value = item.value;
+              indexedDBNameInput.focus();
+            };
+            buttonDiv.appendChild(editButton);
+
+            // Nút Delete
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Xoá";
+            deleteButton.onclick = () => deleteIndexedDB(item.id);
+            buttonDiv.appendChild(deleteButton);
+
+            li.appendChild(buttonDiv);
+            ul.appendChild(li);
+          });
+
+          indexedDBListDiv.appendChild(ul);
+        };
+      }
+
+      // Thêm / Sửa IndexedDB
+      function addIndexedDB(event) {
+        event.preventDefault();
+
+        const key = indexedDBKeyInput.value.trim();
+        const name = indexedDBNameInput.value.trim();
+        const value = indexedDBValueInput.value.trim();
+
+        if (!name || !value) {
+          alert("Tên và Giá trị không được để trống!");
+          return;
+        }
+
+        const transaction = db.transaction([dbStoreName], "readwrite");
+        const objectStore = transaction.objectStore(dbStoreName);
+
+        let item = {
+          name: name,
+          value: value,
+        };
+
+        // Nếu có key
+        if (key) {
+          item.id = parseInt(key);
+        }
+
+        let request;
+        if (key) {
+          // Cập nhật item hiện có
+          request = objectStore.put(item);
+        } else {
+          // Thêm item mới
+          request = objectStore.add(item);
+        }
+
+        request.onerror = function (event) {
+          console.error("Error saving data: " + event.target.error);
+          alert("Lỗi khi lưu dữ liệu: " + event.target.error);
+        };
+
+        request.onsuccess = function () {
+          indexedDBForm.reset();
+          displayIndexedDB();
+        };
+      }
+
+      // Xóa IndexedDB
+      function deleteIndexedDB(id) {
+        const transaction = db.transaction([dbStoreName], "readwrite");
+        const objectStore = transaction.objectStore(dbStoreName);
+        const request = objectStore.delete(id);
+
+        request.onerror = function (event) {
+          console.error("Error deleting data: " + event.target.error);
+          alert("Lỗi khi xóa dữ liệu: " + event.target.error);
+        };
+
+        request.onsuccess = function () {
+          displayIndexedDB();
+        };
+      }
+
+      indexedDBForm.addEventListener("submit", addIndexedDB);
+
+      // Hiển thị dữ liệu ban đầu
+      displayLocalStorage();
+    </script>
+  </body>
+</html>
