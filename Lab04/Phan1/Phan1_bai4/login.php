@@ -2,12 +2,13 @@
 session_start();
 
 // check user login chưa
+// nếu đăng nhập -> chuyển đến trang info.php
 if (isset($_SESSION['user'])) {
     header('Location: info.php');
     exit;
 }
 
-// Kiểm xet xem cookie "remember" có tồn tại không
+// Kiểm xet xem cookie "remember" có tồn tại không, và người dùng chưa đăng nhập
 if (isset($_COOKIE['remember']) && !isset($_SESSION['user'])) {
     $token = $_COOKIE['remember'];
     $parts = explode(':', $token);
@@ -15,7 +16,11 @@ if (isset($_COOKIE['remember']) && !isset($_SESSION['user'])) {
     if (count($parts) == 2) {
         $username = $parts[0];
         $tokenValue = $parts[1];
+        // in username và tokenValue
+        // echo "Username: $username<br>";
+        // echo "Token Value: $tokenValue<br>";
 
+        // Check token có hợp lệ không
         if ($tokenValue == md5($username . 'secret_key')) {
             $_SESSION['user'] = $username;
             header('Location: info.php');
@@ -38,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($remember) {
             $token = $username . ':' . md5($username . 'secret_key');
 
-            setcookie('remember', $token, time() + 60*60*24*30, '/');
+            setcookie('remember', $token, time() + 60*60*24*30, '/'); // 30 ngày
         }
 
         header('Location: info.php');
