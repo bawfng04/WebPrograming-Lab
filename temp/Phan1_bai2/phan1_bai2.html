@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý Cookie</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 15px;
+      }
+      #cookieList ul {
+        list-style: none;
+        padding: 0;
+      }
+      #cookieList li {
+        margin-bottom: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #cookieList button {
+        margin-left: 10px;
+        padding: 3px 8px;
+        cursor: pointer;
+      }
+      form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      form input[type="text"],
+      form input[type="number"] {
+        width: 250px;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+      form button {
+        padding: 8px 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Quản lý Cookie (JavaScript)</h1>
+
+    <h2>Cookie Hiện Tại</h2>
+    <div id="cookieList"><p>Đang tải...</p></div>
+
+    <hr />
+
+    <h2>Thêm / Sửa Cookie</h2>
+    <form id="cookieForm">
+      <div>
+        <label for="cookieName">Tên Cookie:</label>
+        <input type="text" id="cookieName" required />
+      </div>
+      <div>
+        <label for="cookieValue">Giá trị:</label>
+        <input type="text" id="cookieValue" required />
+      </div>
+      <div>
+        <label for="cookieExpires">Hết hạn sau (ngày):</label>
+        <input
+          type="number"
+          id="cookieExpires"
+          min="0"
+          placeholder="Để trống nếu muốn là session cookie"
+        />
+      </div>
+      <div>
+        <label for="cookiePath">Path:</label>
+        <input type="text" id="cookiePath" placeholder="Mặc định: /" />
+      </div>
+      <div>
+        <label for="cookieDomain">Domain:</label>
+        <input
+          type="text"
+          id="cookieDomain"
+          placeholder="Mặc định: domain hiện tại"
+        />
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" id="cookieSecure" /> Secure (Chỉ gửi qua HTTPS)
+        </label>
+      </div>
+      <button type="submit">Thêm / Sửa Cookie</button>
+    </form>
+
+    <script>
+      // dạng: name=value; expires=date; path=path; domain=domain; secure
+      const cookieListDiv = document.getElementById("cookieList");
+      const cookieForm = document.getElementById("cookieForm");
+      const cookieNameInput = document.getElementById("cookieName");
+      const cookieValueInput = document.getElementById("cookieValue");
+      const cookieExpiresInput = document.getElementById("cookieExpires");
+      const cookiePathInput = document.getElementById("cookiePath");
+      const cookieDomainInput = document.getElementById("cookieDomain");
+      const cookieSecureInput = document.getElementById("cookieSecure");
+
+      // Hiển thị danh sách cookie
+      function displayCookies() {
+        cookieListDiv.innerHTML = ""; // Xóa danh sách cũ
+        const cookies = document.cookie.split("; ");
+        const ul = document.createElement("ul");
+
+        console.log("Raw document.cookie:", document.cookie);
+
+        if (
+          !document.cookie ||
+          cookies.length === 0 ||
+          (cookies.length === 1 && !cookies[0])
+        ) {
+          cookieListDiv.innerHTML = "<p>Không tìm thấy cookie nào.</p>";
+          return;
+        }
+        // console.log(cookies);
+        //         0:  "test4=10000"
+        //         1:  "test32=10000"
+        //        ...
+        cookies.forEach((cookieString) => {
+          if (!cookieString) return; // Bỏ qua chuỗi rỗng
+
+          // Tách tên và giá trị cookie
+          const separatorIndex = cookieString.indexOf("=");
+          if (separatorIndex === -1) return;
+
+          const name = decodeURIComponent(
+            cookieString.substring(0, separatorIndex).trim()
+          );
+          const value = decodeURIComponent(
+            cookieString.substring(separatorIndex + 1).trim()
+          );
+
+          const li = document.createElement("li");
+
+          // Hiển thị tên và giá trị
+          const textSpan = document.createElement("span");
+          textSpan.textContent = `${name} = ${value}`;
+          li.appendChild(textSpan);
+
+          // Nút
+          const buttonDiv = document.createElement("div");
+
+          // Nút Edit (điền form)
+          const editButton = document.createElement("button");
+          editButton.textContent = "Sửa";
+          editButton.onclick = () => {
+            cookieNameInput.value = name;
+            cookieValueInput.value = value;
+            cookieExpiresInput.value = "";
+            cookiePathInput.value = "";
+            cookieDomainInput.value = "";
+            cookieSecureInput.checked = false;
+            cookieNameInput.focus();
+          };
+          buttonDiv.appendChild(editButton);
+
+          // Nút Delete
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Xoá";
+          deleteButton.onclick = () => deleteCookie(name); // Gọi hàm xóa với tên cookie
+          buttonDiv.appendChild(deleteButton);
+
+          li.appendChild(buttonDiv);
+          ul.appendChild(li);
+        });
+        cookieListDiv.appendChild(ul);
+      }
+
+      // Thêm / Sửa Cookie
+      function addCookie(event) {
+        event.preventDefault();
+
+        const name = encodeURIComponent(cookieNameInput.value.trim());
+        const value = encodeURIComponent(cookieValueInput.value.trim());
+        if (!name || !value) {
+          alert("Tên và Giá trị không được để trống!");
+          return;
+        }
+
+        let cookieString = `${name}=${value}`;
+
+        // Xử lý ngày hết hạn
+        const days = cookieExpiresInput.value;
+        if (days && parseInt(days) >= 0) {
+          const date = new Date();
+          date.setTime(date.getTime() + parseInt(days) * 24 * 60 * 60 * 1000);
+          cookieString += `; expires=${date.toUTCString()}`;
+        }
+
+        const path = cookiePathInput.value.trim();
+        // mặc định là "/"
+        cookieString += `; path=${path || "/"}`;
+
+        const domain = cookieDomainInput.value.trim();
+        if (domain) {
+          cookieString += `; domain=${domain}`;
+        }
+
+        if (cookieSecureInput.checked) {
+          cookieString += `; secure`; // Cookie chỉ được gửi qua HTTPS
+        }
+
+        // Ghi cookie
+        document.cookie = cookieString;
+        console.log("Ghi cookie:", cookieString);
+        cookieForm.reset();
+        displayCookies();
+        // window.location.reload();
+      }
+
+      // Xoá Cookie
+      function deleteCookie(name) {
+        const encodedName = encodeURIComponent(name);
+        let deleteCmd1 = `${encodedName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+        let deleteCmd2 = `${encodedName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+
+        // console.log("Thử xóa cookie:", deleteCmd1);
+        // console.log("Thử xóa cookie:", deleteCmd2);
+
+        document.cookie = deleteCmd1;
+        document.cookie = deleteCmd2;
+
+        setTimeout(displayCookies, 150);
+      }
+
+      cookieForm.addEventListener("submit", addCookie);
+      displayCookies();
+    </script>
+  </body>
+</html>

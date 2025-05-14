@@ -1,0 +1,15 @@
+Thông báo nội dung thi cuối kỳ môn lập trình Web.
+- Thời gian & địa điểm: Theo lịch của PĐT 
+- Thời gian làm bài: 90 phút
+
+Hình thức thi: 40 câu trắc nghiệm (7 điểm) + Tự luận (3 điểm), không sử dụng tài liệu, câu hỏi tự luận yêu cầu viết mã. Phần trắc nghiệm SV điền vào bảng trả lời trắc nghiệm trên đề.
+- Nội dung bài thi SV cần ôn tập:
+     + HTML & CSS: cách viết 1 tài liệu HTML, các phần tử HTML / HTML5, các thuộc tính CSS / CSS3 đơn giản, hiện thực layout cho trang web,...
+     + Javascript: cú pháp ngôn ngữ, các hàm Javascript đơn giản, cách dùng ngôn ngữ Javascript để nhận và xử lý thông tin từ HTML Form, DOM Tree, jQuery, AJAX, Fetch...
+     + PHP: cú pháp ngôn ngữ, các hàm PHP cơ bản đã được học, nhận và xử lý dữ liệu từ Form, dùng thư viện ngôn ngữ PHP giao tiếp với hệ quản trị CSDL MySQL.
+     + Cookie, Session, Web services
+     + SEO
+     + Web security
+     + Các kiến thức khác về lập trình web trong chương trình học
+
+Sinh viên ôn tập lại lý thuyết được học ở lớp và tất cả các bài tập trong phần thực hành, kể cả bài tập lớn.
